@@ -1,0 +1,117 @@
+<section class="body">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="page-title center">{{translations.Get('Account_Register')}}</h1>
+        </div>
+    </div>
+
+    <form [formGroup]="form">
+        <div class="row margin-bottom-15">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 register-form">
+                <div class="form-group">
+                    <span>
+                        {{translations.Get('Account_Register_Email')}}
+                    </span>
+                    <input class="form-field" type="text" formControlName="email">
+                </div>
+            </div>
+        </div>
+        <div class="row error margin-bottom-15" *ngIf="form.get('email')?.errors?.['email']">
+            {{translations.Get('Account_Register_Validation_Email')}}
+        </div>
+        <div class="row error margin-bottom-15" *ngIf="form.get('email')?.errors?.['required']">
+            {{translations.Get('Account_Register_Validation_Required')}}
+        </div>
+        <div class="row error margin-bottom-15" *ngIf="form.get('email')?.errors?.['maxlength']">
+            {{translations.Get('User_Error_MaxLength100')}}
+        </div>
+
+        <div class="row margin-bottom-15">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 register-form">
+                <div class="form-group">
+                    <span>
+                        {{translations.Get('Account_Register_UserName')}}
+                    </span>
+                    <input class="form-field" type="text" formControlName="userName">
+                </div>
+            </div>
+        </div>
+        <div class="row error margin-bottom-15" *ngIf="form.get('userName')?.errors?.['required']">
+            {{translations.Get('Account_Register_Validation_Required')}}
+        </div>
+        <div class="row error margin-bottom-15" *ngIf="form.get('userName')?.errors?.['maxlength']">
+            {{translations.Get('User_Error_MaxLength100')}}
+        </div>
+
+        <div class="row margin-bottom-15">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 register-form">
+                <div class="form-group">
+                    <span>
+                        {{translations.Get('Account_Register_Password')}}
+                    </span>
+                    <input class="form-field" type="password" formControlName="password">
+                </div>
+            </div>
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['minlength']">
+            {{translations.Get('Account_Register_Validation_MinLength8')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['required']">
+            {{translations.Get('Account_Register_Validation_Required')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['requiresLowercase']">
+            {{translations.Get('Account_Register_Validation_LowerCase')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['requiresUppercase']">
+            {{translations.Get('Account_Register_Validation_UpperCase')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['requiresDigit']">
+            {{translations.Get('Account_Register_Validation_Digit')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password')?.errors?.['requiresSpecialChars']">
+            {{translations.Get('Account_Register_Validation_SpecialChar')}}
+        </div>
+
+        <div class="row margin-bottom-15">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 register-form">
+                <div class="form-group">
+                    <span>
+                        {{translations.Get('Account_Register_Password_Repeat')}}
+                    </span>
+                    <input class="form-field" type="password" formControlName="password2">
+                </div>
+            </div>
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['minlength']">
+            {{translations.Get('Account_Register_Validation_MinLength8')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['required']">
+            {{translations.Get('Account_Register_Validation_Required')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['requiresLowercase']">
+            {{translations.Get('Account_Register_Validation_LowerCase')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['requiresUppercase']">
+            {{translations.Get('Account_Register_Validation_UpperCase')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['requiresDigit']">
+            {{translations.Get('Account_Register_Validation_Digit')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.get('password2')?.errors?.['requiresSpecialChars']">
+            {{translations.Get('Account_Register_Validation_SpecialChar')}}
+        </div>
+        <div class="error row margin-bottom-15" *ngIf="form.errors?.['PasswordNoMatch']">
+            {{translations.Get('Account_Register_Validation_Password_Equals')}}
+        </div>
+    </form>
+
+    <div class="row margin-top-35"> 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button mat-raised-button class="margin-right-15" (click)="Clear()">{{translations.Get('Account_Register_Reset')}}</button>
+            <button mat-raised-button class="primary-btn" (click)="Save()" [disabled]="form.invalid">{{translations.Get('Account_Register_Send')}}</button>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-15">
+            <button mat-raised-button class="primary-btn" (click)="GoToLogin()">{{translations.Get('Account_Login_Already_Have_Account')}}</button>
+        </div>
+    </div>
+</section>
