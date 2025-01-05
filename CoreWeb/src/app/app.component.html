@@ -1,0 +1,26 @@
+<div class="navigation" *ngIf="!hideMenu">
+    <div class="left-panel"></div>
+    <nav>
+        <a href="users" *ngIf="IsAdmin">{{"TopMenu_Users" | translate}}</a>
+        <a href="test">TEST</a>
+    </nav>
+    <div class="mobile-navigation">
+        <div class="mobile-navigation-button"> 
+            <span class="bi bi-list" (click)="ToggleMobileMenu()"></span> 
+        </div> 
+        <div class="mobile-menu" [ngClass]="IsMobileMenuActive ? 'mobile-menu-active' : 'mobile-menu-inactive'"> 
+            <div class="mobile-menu-container"> 
+                <a href="users" *ngIf="IsAdmin">{{"TopMenu_Users" | translate}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="side-menu">
+        <div class="user" (click)="GoToUser()"></div>
+        <div class="pl" *ngIf="language == 'en'" (click)="ChangeLanguage('pl')"></div>
+        <div class="en" *ngIf="language == 'pl'" (click)="ChangeLanguage('en')"></div>
+        <div class="logout" (click)="LogOut()"></div>
+    </div>
+</div>
+<div [ngClass]="mainClass">
+    <router-outlet></router-outlet>
+</div>

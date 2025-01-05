@@ -1,0 +1,530 @@
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$LibraryWeb-primary: mat.define-palette(mat.$indigo-palette);
+$LibraryWeb-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$LibraryWeb-warn: mat.define-palette(mat.$red-palette);
+
+$LibraryWeb-theme: mat.define-light-theme((
+  color: (
+    primary: $LibraryWeb-primary,
+    accent: $LibraryWeb-accent,
+    warn: $LibraryWeb-warn,
+  )
+));
+
+@include mat.all-component-themes($LibraryWeb-theme);
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.padding-top-15{
+    padding-top: 15px;
+}
+
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+
+.page-title{
+    text-align: left;
+    font-weight: normal;
+    font-size: 26px;
+}
+
+.page-subtitle{
+    text-align: left;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.float-right{
+    float: right;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+}
+
+.margin-right-15{
+    margin-right: 15px;
+}
+
+.margin-bottom-15{
+    margin-bottom: 15px;
+}
+
+.margin-left-15{
+    margin-left: 15px;
+}
+
+.margin-left-30{
+    margin-left: 30px;
+}
+
+.row{
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.data-row{
+    display: flex;
+    align-items: center;
+    background-color: #EEE;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border-left: 10px solid #6E93FE;
+    border-right: 10px solid #6E93FE;
+
+    p{
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+
+    &:hover{
+        background-color: #6E93FE;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.no-data-row{
+    display: block;
+    padding: 5px;
+    background-color: #EEE;
+    border-radius: 5px;
+    margin-top: 30px;
+    border-left: 10px solid #6E93FE;
+    border-right: 10px solid #6E93FE;
+
+    &:hover{
+        background-color: #6E93FE;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.bi{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bi:hover{
+    background-color: #6E93FE;
+    cursor: pointer;
+}
+
+.primary-btn:not(:disabled){
+    background-color: #6E93FE !important;
+    color: white !important;
+}
+
+.display-none{
+    display: none;
+}
+
+//Login / Register btns
+.form-field {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    color: #99A3BA;
+    border: 1px solid #CDD9ED;
+    background: #fff;
+    transition: border .3s ease;
+    &::placeholder {
+        color: #CBD1DC;
+    }
+    &:focus {
+        outline: none;
+        border-color: #275EFE;
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    width: 360px;
+    margin-left: 30px;
+
+    & > span,
+    .form-field {
+        white-space: nowrap;
+        display: block;
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+        &:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        &:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+    }
+    .form-field {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    & > span {
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 25px;
+        color: #99A3BA;
+        background: #EEF4FF;
+        border: 1px solid #CDD9ED;
+        transition: background .3s ease, border .3s ease, color .3s ease;
+    }
+    &:focus-within {
+        & > span {
+            color: #fff;
+            background: #678EFE;
+            border-color: #275EFE;
+        }
+    }
+}
+
+//Data inputs
+.data-input-text {
+    display: block;
+    border-left:8px solid #6E93FE;
+    padding-left: 15px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.data-input {
+    width: 268px;
+    height: 35px;
+    display: block;
+    border: none;
+    padding: 10px 16px;
+    border-bottom: solid 1px #678EFE;
+    transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, #678EFE 4%);
+    background-position: -300px 0;
+    background-size: 300px 100%;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      background-position: 0 0;
+
+        &::-webkit-input-placeholder {
+            color: #678EFE;
+            font-size: 11px;
+            transform: translateY(-20px);
+            visibility: visible !important;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .data-input {
+        width: 200px;
+    }   
+}
+
+.mat-mdc-form-field-bottom-align::before{
+    display: none !important; //warning! If i keep this for all mat-form fields i cannot user mat error or mat hint
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{
+    border-bottom-color: #678EFE;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: #678EFE;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+    border-bottom-color: #678EFE;
+}
+
+.mat-mdc-form-field{
+    width: 300px;
+}
+
+.inside-row-form-field{
+    .mat-mdc-form-field{
+        width: 90%;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled){
+        background-color: transparent;
+        border-bottom: none;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{
+        border-bottom: none;
+    }
+}
+
+.error{
+    color: red;
+}
+
+.error-input{
+    color: red;
+    text-align: left;
+    margin-left: 20%;
+}
+
+@media screen and (min-width: 1200px){
+    .col-lg-1{
+        width: 8.333%;
+        display: inline-block;
+    }
+    .col-lg-2{
+        width: 16.667%;
+        display: inline-block;
+    }
+    .col-lg-3{
+        width: 25%;
+        display: inline-block;
+    }
+    .col-lg-4{
+        width: 33.333%;
+        display: inline-block;
+    }
+    .col-lg-5{
+        width: 41.667%;
+        display: inline-block;
+    }
+    .col-lg-6{
+        width: 50%;
+        display: inline-block;
+    }
+    .col-lg-7{
+        width: 58.333%;
+        display: inline-block;
+    }
+    .col-lg-8{
+        width: 66.667%;
+        display: inline-block;
+    }
+    .col-lg-9{
+        width: 75%;
+        display: inline-block;
+    }
+    .col-lg-10{
+        width: 83.333%;
+        display: inline-block;
+    }
+    .col-lg-11{
+        width: 91.667%;
+        display: inline-block;
+    }
+    .col-lg-12{
+        width: 100%;
+        display: inline-block;
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+    .col-md-1{
+        width: 8.333%;
+        display: inline-block;
+    }
+    .col-md-2{
+        width: 16.667%;
+        display: inline-block;
+    }
+    .col-md-3{
+        width: 25%;
+        display: inline-block;
+    }
+    .col-md-4{
+        width: 33.333%;
+        display: inline-block;
+    }
+    .col-md-5{
+        width: 41.667%;
+        display: inline-block;
+    }
+    .col-md-6{
+        width: 50%;
+        display: inline-block;
+    }
+    .col-md-7{
+        width: 58.333%;
+        display: inline-block;
+    }
+    .col-md-8{
+        width: 66.667%;
+        display: inline-block;
+    }
+    .col-md-9{
+        width: 75%;
+        display: inline-block;
+    }
+    .col-md-10{
+        width: 83.333%;
+        display: inline-block;
+    }
+    .col-md-11{
+        width: 91.667%;
+        display: inline-block;
+    }
+    .col-md-12{
+        width: 100%;
+        display: inline-block;
+    }   
+}
+
+@media screen and (max-width: 992px){
+    .col-sm-1{
+        width: 8.333%;
+        display: inline-block;
+    }
+    .col-sm-2{
+        width: 16.667%;
+        display: inline-block;
+    }
+    .col-sm-3{
+        width: 25%;
+        display: inline-block;
+    }
+    .col-sm-4{
+        width: 33.333%;
+        display: inline-block;
+    }
+    .col-sm-5{
+        width: 41.667%;
+        display: inline-block;
+    }
+    .col-sm-6{
+        width: 50%;
+        display: inline-block;
+    }
+    .col-sm-7{
+        width: 58.333%;
+        display: inline-block;
+    }
+    .col-sm-8{
+        width: 66.667%;
+        display: inline-block;
+    }
+    .col-sm-9{
+        width: 75%;
+        display: inline-block;
+    }
+    .col-sm-10{
+        width: 83.333%;
+        display: inline-block;
+    }
+    .col-sm-11{
+        width: 91.667%;
+        display: inline-block;
+    }
+    .col-sm-12{
+        width: 100%;
+        display: inline-block;
+    }
+
+    .hidden-sm{
+        display: none;
+    }
+
+    .data-input-text {
+        padding-left: 22px;
+    }
+
+    .filter-row{
+        text-align: left;
+
+        > div{
+            margin-bottom: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .col-xs-1{
+        width: 8.333%;
+        display: inline-block;
+    }
+    .col-xs-2{
+        width: 16.667%;
+        display: inline-block;
+    }
+    .col-xs-3{
+        width: 25%;
+        display: inline-block;
+    }
+    .col-xs-4{
+        width: 33.333%;
+        display: inline-block;
+    }
+    .col-xs-5{
+        width: 41.667%;
+        display: inline-block;
+    }
+    .col-xs-6{
+        width: 50%;
+        display: inline-block;
+    }
+    .col-xs-7{
+        width: 58.333%;
+        display: inline-block;
+    }
+    .col-xs-8{
+        width: 66.667%;
+        display: inline-block;
+    }
+    .col-xs-9{
+        width: 75%;
+        display: inline-block;
+    }
+    .col-xs-10{
+        width: 83.333%;
+        display: inline-block;
+    }
+    .col-xs-11{
+        width: 91.667%;
+        display: inline-block;
+    }
+    .col-xs-12{
+        width: 100%;
+        display: inline-block;
+    }
+
+    .hidden-xs{
+        display: none;
+    }
+
+    .hidden-sm{
+        display: none;
+    }
+
+    .data-input-text {
+        padding-left: 22px;
+    }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
