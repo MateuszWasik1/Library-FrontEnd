@@ -9,31 +9,48 @@ import { TestPageComponent } from './components/test-page.component/test-page.co
 const routes: Routes = [
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    title: "Rejestracja"
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    title: "Logowanie"
   },
   {
     path: 'user',
-    component: UserPageComponent
+    component: UserPageComponent,
+    title: "Użytkownik"
   },
   {
     path: 'user/:ugid',
-    component: UserPageComponent
+    component: UserPageComponent,
+    title: "Użytkownik"
   },
   {
     path: 'users',
-    component: UsersPageComponent
+    component: UsersPageComponent,
+    title: "Użytkownicy"
   },
   {
     path: 'test',
-    component: TestPageComponent
+    component: TestPageComponent,
+    title: "Test"
+  },
+  {
+    path: 'book',
+    component: UserPageComponent,
+    title: "Książka"
+  },
+  {
+    path: 'books/:bgid',
+    component: UserPageComponent,
+    title: "Książki"
   },
   {
     path: '**',
-    component: UsersPageComponent
+    component: UsersPageComponent,
+    title: "Użytkownicy"
   },
 ];
 

@@ -32,6 +32,7 @@
     "TopMenu_Bugs": "Bugs",
     "TopMenu_Notes": "Notes",
     "TopMenu_Users": "Users",
+    "TopMenu_Books": "Books",
     "Categories_New_Category": "New Category",
     "Categories_Category": "Category",
     "Categories_Name_Required": "Name field is required.",
@@ -177,5 +178,11 @@
     "Paginator_FirstPage": "First page",
     "Paginator_PreviousPage": "Previous page",
     "Paginator_NextPage": "Next page",
-    "Paginator_LastPage": "Last page"
+    "Paginator_LastPage": "Last page",
+    "Books_Author": "Author",
+    "Books_Publisher": "Publisher",
+    "Books_Title": "title",
+    "Books_ISBN": "ISBN",
+    "Books_Genre": "Genre",
+    "Books_Language": "Language"
 }

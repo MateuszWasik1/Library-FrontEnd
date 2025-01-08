@@ -33,6 +33,7 @@
     "TopMenu_Bugs": "Błędy",
     "TopMenu_Notes": "Notatki",
     "TopMenu_Users": "Użytkownicy",
+    "TopMenu_Books": "Książki",
     "Categories_New_Category": "Nowa kategoria",
     "Categories_Category": "Kategoria",
     "Categories_Name_Required": "Uzupełnienie pola nazwy jest wymagane.",
@@ -179,5 +180,11 @@
     "Paginator_FirstPage": "Pierwsza strona",
     "Paginator_PreviousPage": "Poprzednia strona",
     "Paginator_NextPage": "Następna strona",
-    "Paginator_LastPage": "Ostatnia strona"
+    "Paginator_LastPage": "Ostatnia strona",
+    "Books_Author": "Autor",
+    "Books_Publisher": "Wydawca",
+    "Books_Title": "Tytuł",
+    "Books_ISBN": "ISBN",
+    "Books_Genre": "Gatunek",
+    "Books_Language": "Język"
 }

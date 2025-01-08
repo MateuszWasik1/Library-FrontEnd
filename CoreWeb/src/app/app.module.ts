@@ -47,6 +47,7 @@ import { TestEffects } from './components/test-page.component/test-page-state/te
 import { featureKeyBooksState } from './components/books-page.component/books-page-state/books-page-state.state';
 import { BooksReducer } from './components/books-page.component/books-page-state/books-page-state.reducer';
 import { BooksEffects } from './components/books-page.component/books-page-state/books-page-state.effects';
+import { BooksPageComponent } from './components/books-page.component/books-page.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { BooksEffects } from './components/books-page.component/books-page-state
     UsersPageComponent,
     UIErrorHandler,
     PaginatorComponent,
-    TestPageComponent
+    TestPageComponent,
+    BooksPageComponent,
   ],
   imports: [
     ReactiveFormsModule,
