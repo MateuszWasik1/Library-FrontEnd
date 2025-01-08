@@ -48,6 +48,7 @@ import { featureKeyBooksState } from './components/books-page.component/books-pa
 import { BooksReducer } from './components/books-page.component/books-page-state/books-page-state.reducer';
 import { BooksEffects } from './components/books-page.component/books-page-state/books-page-state.effects';
 import { BooksPageComponent } from './components/books-page.component/books-page.component';
+import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { BooksPageComponent } from './components/books-page.component/books-page
     UIErrorHandler,
     PaginatorComponent,
     TestPageComponent,
+    BookPageComponent,
     BooksPageComponent,
   ],
   imports: [

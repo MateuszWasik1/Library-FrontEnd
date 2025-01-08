@@ -5,6 +5,8 @@ import { LoginComponent } from './components/account-page.component/login-page.c
 import { UserPageComponent } from './components/user-page.component/user-page.component';
 import { UsersPageComponent } from './components/users-page.component/users-page.component';
 import { TestPageComponent } from './components/test-page.component/test-page.component';
+import { BooksPageComponent } from './components/books-page.component/books-page.component';
+import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
 
 const routes: Routes = [
   {
@@ -38,14 +40,14 @@ const routes: Routes = [
     title: "Test"
   },
   {
-    path: 'book',
-    component: UserPageComponent,
-    title: "Książka"
+    path: 'books',
+    component: BooksPageComponent,
+    title: "Książki"
   },
   {
-    path: 'books/:bgid',
-    component: UserPageComponent,
-    title: "Książki"
+    path: 'book/:bgid',
+    component: BookPageComponent,
+    title: "Książka"
   },
   {
     path: '**',
