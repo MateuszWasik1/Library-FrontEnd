@@ -36,6 +36,6 @@ export class BooksService {
     }
 
     DeleteBook(tgid: any) : Observable<any>{
-        return this.http.delete<any>(`${this.apiUrl}api/Books/Delete/${tgid}`, { headers: GetToken(this.cookiesService) })
+        return this.http.delete<any>(`${this.apiUrl}api/Books/DeleteBook/${tgid}`, { headers: GetToken(this.cookiesService) })
     }
 }

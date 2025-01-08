@@ -33,7 +33,7 @@ export const BooksReducer = createReducer<BooksState>(
             BAuthorGID: Book.bAuthorGID,
             BPublisherGID: Book.bPublisherGID,
             BTitle: Book.bTitle,
-            BISBN: Book.bISBN,
+            BISBN: Book.bisbn,
             BGenre: Book.bGenre,
             BLanguage: Book.bLanguage,
             BDescription: Book.bDescription,
@@ -78,10 +78,10 @@ export const BooksReducer = createReducer<BooksState>(
     })),
 
     //Delete Book
-    on(Actions.deleteBookSuccess, (state, { tgid }) => {
+    on(Actions.deleteBookSuccess, (state, { bgid }) => {
         let newBooks = [...state.Books];
 
-        let booksWithoutDeletedBook = newBooks.filter(x => x.tgid != tgid);
+        let booksWithoutDeletedBook = newBooks.filter(x => x.bgid != bgid);
 
         return {...state, Books: booksWithoutDeletedBook};
     }),

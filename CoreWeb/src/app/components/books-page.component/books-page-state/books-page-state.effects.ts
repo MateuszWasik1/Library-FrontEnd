@@ -76,7 +76,7 @@ export class BooksEffects {
             ofType(BooksActions.deleteBook),
             switchMap((params) => {
                 return this.booksService.DeleteBook(params.bgid).pipe(
-                    map(() => BooksActions.deleteBookSuccess({ tgid: params.bgid })),
+                    map(() => BooksActions.deleteBookSuccess({ bgid: params.bgid })),
                     catchError(error => of(BooksActions.deleteBookError({ error: this.errorHandler.handleAPIError(error) })))
                 )
             })

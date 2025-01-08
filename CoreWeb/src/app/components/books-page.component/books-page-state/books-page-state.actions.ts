@@ -17,7 +17,7 @@ export const updateBookSuccess = createAction('Books Page] Update Book Success')
 export const updateBookError = createAction('[Books Page] Update Book Error', props<{ error: any }>());
 
 export const deleteBook = createAction('[Books Page] Delete Book', props<{ bgid: any }>());
-export const deleteBookSuccess = createAction('Books Page] Delete Book Success', props<{ tgid: any }>());
+export const deleteBookSuccess = createAction('Books Page] Delete Book Success', props<{ bgid: any }>());
 export const deleteBookError = createAction('[Books Page] Delete Book Error', props<{ error: any }>());
 
 export const updatePaginationDataBooks = createAction('[Books Page] Update Pagination Data Books', props<{ PaginationData: any }>());

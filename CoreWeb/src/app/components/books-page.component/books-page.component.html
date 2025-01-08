@@ -22,12 +22,13 @@
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 {{translations.Get('Books_ISBN')}}
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 hidden-xs">
                 {{translations.Get('Books_Genre')}}
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 hidden-sm hidden-xs">
                 {{translations.Get('Books_Language')}}
             </div>
+            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3"></div>
         </div>
         <div *ngFor="let book of books;">
             <div class="row data-row">
@@ -41,13 +42,17 @@
                     <p>{{book.bTitle}}</p>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <p>{{book.bISBN}}</p>
+                    <p>{{book.bisbn}}</p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 hidden-xs">
                     <p>{{book.bGenre}}</p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 hidden-sm hidden-xs">
                     <p>{{book.bLanguage}}</p>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">
+                    <span class="bi bi-pencil" (click)="UpdateBook(book.bgid)"></span>
+                    <span class="bi bi-trash" (click)="DeleteBook(book.bgid)"></span>
                 </div>
             </div>
         </div>
