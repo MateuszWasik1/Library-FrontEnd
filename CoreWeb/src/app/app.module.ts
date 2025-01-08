@@ -40,10 +40,6 @@ import { UIErrorHandler } from './error-handlers/ui-error-handler/ui-error-handl
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatorComponent } from './components/shared/paginator.component/paginator.component';
-import { TestPageComponent } from './components/test-page.component/test-page.component';
-import { featureKeyTestState } from './components/test-page.component/test-page-state/test-page-state.state';
-import { TestReducer } from './components/test-page.component/test-page-state/test-page-state.reducer';
-import { TestEffects } from './components/test-page.component/test-page-state/test-page-state.effects';
 import { featureKeyBooksState } from './components/books-page.component/books-page-state/books-page-state.state';
 import { BooksReducer } from './components/books-page.component/books-page-state/books-page-state.reducer';
 import { BooksEffects } from './components/books-page.component/books-page-state/books-page-state.effects';
@@ -59,7 +55,6 @@ import { BookPageComponent } from './components/books-page.component/book-page.c
     UsersPageComponent,
     UIErrorHandler,
     PaginatorComponent,
-    TestPageComponent,
     BookPageComponent,
     BooksPageComponent,
   ],
@@ -97,10 +92,9 @@ import { BookPageComponent } from './components/books-page.component/book-page.c
     StoreModule.forFeature(featureKeyAccountState, AccountReducer),
     StoreModule.forFeature(featureKeyUserState, UserReducer),
     StoreModule.forFeature(featureKeyUsersState, UsersReducer),
-    StoreModule.forFeature(featureKeyTestState, TestReducer),
     StoreModule.forFeature(featureKeyBooksState, BooksReducer),
 
-    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, TestEffects, BooksEffects]),
+    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects]),
     BrowserAnimationsModule,
   ],
   providers: [

@@ -4,7 +4,6 @@ import { RegisterComponent } from './components/account-page.component/register-
 import { LoginComponent } from './components/account-page.component/login-page.component/login-page.component';
 import { UserPageComponent } from './components/user-page.component/user-page.component';
 import { UsersPageComponent } from './components/users-page.component/users-page.component';
-import { TestPageComponent } from './components/test-page.component/test-page.component';
 import { BooksPageComponent } from './components/books-page.component/books-page.component';
 import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
 
@@ -33,11 +32,6 @@ const routes: Routes = [
     path: 'users',
     component: UsersPageComponent,
     title: "Użytkownicy"
-  },
-  {
-    path: 'test',
-    component: TestPageComponent,
-    title: "Test"
   },
   {
     path: 'books',
