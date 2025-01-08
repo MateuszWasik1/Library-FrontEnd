@@ -5,35 +5,54 @@ import { LoginComponent } from './components/account-page.component/login-page.c
 import { UserPageComponent } from './components/user-page.component/user-page.component';
 import { UsersPageComponent } from './components/users-page.component/users-page.component';
 import { TestPageComponent } from './components/test-page.component/test-page.component';
+import { BooksPageComponent } from './components/books-page.component/books-page.component';
+import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
 
 const routes: Routes = [
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    title: "Rejestracja"
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    title: "Logowanie"
   },
   {
     path: 'user',
-    component: UserPageComponent
+    component: UserPageComponent,
+    title: "Użytkownik"
   },
   {
     path: 'user/:ugid',
-    component: UserPageComponent
+    component: UserPageComponent,
+    title: "Użytkownik"
   },
   {
     path: 'users',
-    component: UsersPageComponent
+    component: UsersPageComponent,
+    title: "Użytkownicy"
   },
   {
     path: 'test',
-    component: TestPageComponent
+    component: TestPageComponent,
+    title: "Test"
+  },
+  {
+    path: 'books',
+    component: BooksPageComponent,
+    title: "Książki"
+  },
+  {
+    path: 'books/:bgid',
+    component: BookPageComponent,
+    title: "Książka"
   },
   {
     path: '**',
-    component: UsersPageComponent
+    component: UsersPageComponent,
+    title: "Użytkownicy"
   },
 ];
 
