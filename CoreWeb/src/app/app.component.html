@@ -1,7 +1,6 @@
 <div class="navigation" *ngIf="!hideMenu">
     <div class="left-panel"></div>
     <nav>
-        <a href="books">{{"TopMenu_Books" | translate}}</a>
         <a href="users" *ngIf="IsAdmin">{{"TopMenu_Users" | translate}}</a>
         <a href="test">TEST</a>
     </nav>
