@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MainUIErrorHandler } from 'src/app/error-handlers/main-ui-error-handler.component';
 import { addBook, cleanState, loadBook, updateBook } from '../books-page-state/books-page-state.actions';
 import { selectBook, selectErrorMessage } from '../books-page-state/books-page-state.selectors';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-book-page',
@@ -44,13 +45,13 @@ export class BookPageComponent implements OnInit, OnDestroy {
       this.Book$.subscribe(x =>{
         this.form = new FormGroup({
           BGID: new FormControl( x.BGID, { validators: [] }),
-          BAuthorGID: new FormControl( x.BAuthorGID, { validators: [] }),
-          BPublisherGID: new FormControl( x.BPublisherGID, { validators: [] }),
+          BAuthorGID: new FormControl( { value: x.BAuthorGID, disabled: true }, { validators: [] }),
+          BPublisherGID: new FormControl( { value: x.BPublisherGID, disabled: true }, { validators: [] }),
           BTitle: new FormControl( x.BTitle, { validators: [ Validators.required, Validators.minLength(3), Validators.maxLength(255) ] }),
           BISBN: new FormControl( x.BISBN, { validators: [ Validators.required, Validators.minLength(13), Validators.maxLength(13) ] }),
-          BGenre: new FormControl( x.BGenre, { validators: [] }),
-          BLanguage: new FormControl( x.BGenre, { validators: [ Validators.required, Validators.maxLength(255) ] }),
-          BDescription: new FormControl( x.BGenre, { validators: [ Validators.maxLength(2000) ] }),
+          BGenre: new FormControl( { value: x.BGenre, disabled: true }, { validators: [] }),
+          BLanguage: new FormControl( x.BLanguage, { validators: [ Validators.required, Validators.maxLength(255) ] }),
+          BDescription: new FormControl( x.BDescription, { validators: [ Validators.maxLength(2000) ] }),
         })
       })
     );
@@ -65,17 +66,19 @@ export class BookPageComponent implements OnInit, OnDestroy {
   public SaveBook = () => {
     let model = {
       "BGID": this.form.get("BGID")?.value,
-      "BAuthorGID": this.form.get("BAuthorGID")?.value,
-      "BPublisherGID": this.form.get("TName")?.value,
-      "BTitle": this.form.get("TLocalization")?.value,
-      "BISBN": this.form.get("TTime")?.value,
-      "BGenre": this.form.get("TBudget")?.value,
+      "BAuthorGID": Guid.create().toString(),//this.form.get("BAuthorGID")?.value,
+      "BPublisherGID": Guid.create().toString(),//this.form.get("BPublisherGID")?.value,
+      "BTitle": this.form.get("BTitle")?.value,
+      "BISBN": this.form.get("BISBN")?.value,
+      "BGenre": this.form.get("BGenre")?.value,
       "BLanguage": this.form.get("BLanguage")?.value,
       "BDescription": this.form.get("BDescription")?.value,
     }
 
-    if(model.BGID == "0" || model.BGID == "")
+    if(model.BGID == "0" || model.BGID == ""){
+      model.BGID = Guid.create().toString()
       this.store.dispatch(addBook({ Book: model }));
+    }
     else
       this.store.dispatch(updateBook({ Book: model }));
   }

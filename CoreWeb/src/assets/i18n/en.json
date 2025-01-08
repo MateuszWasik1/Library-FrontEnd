@@ -25,6 +25,7 @@
     "General_Cancel": "Cancel",
     "General_Close": "Close",
     "General_Pick_Date_And_Time": "Pick date and time",
+    "General_Required": "Field is required",
     "TopMenu_Categories": "Categories",
     "TopMenu_Tasks": "Tasks",
     "TopMenu_Savings": "Savings",
@@ -184,5 +185,14 @@
     "Books_Title": "title",
     "Books_ISBN": "ISBN",
     "Books_Genre": "Genre",
-    "Books_Language": "Language"
+    "Books_Language": "Language",
+    "Books_Description": "Description",
+    "Books_New_Book": "New book",
+    "Books_Book": "Book",
+    "Books_BTitle_Min3": "Minimal number of characters is 3",
+    "Books_BTitle_Max255": "Maximum number of characters is 255",
+    "Books_BISBN_Min13": "Minimal number of characters is 13",
+    "Books_BISBN_Max13": "Maximum number of characters is 13",
+    "Books_BLanguage_Max255": "Maximum number of characters is 255",
+    "Books_BDescription_Max255": "Maximum number of characters is 13"
 }

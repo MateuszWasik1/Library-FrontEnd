@@ -1,7 +1,7 @@
 <section class="body">
     <div class="row">
         <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-            <h1 class="page-title" *ngIf="isNewBookView">{{translations.Get('Books_New_Bood')}}</h1>
+            <h1 class="page-title" *ngIf="isNewBookView">{{translations.Get('Books_New_Book')}}</h1>
 
             <ng-container *ngIf="Book$ | async as book">
                 <h1 class="page-title" *ngIf="!isNewBookView">{{translations.Get('Books_Book')}}: {{book.BTitle}}</h1>
@@ -22,7 +22,7 @@
                     </span>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Author')" formControlName="BAuthorGID" [disabled]="true"/>
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Author')" formControlName="BAuthorGID"/>
                 </div>
             </div>
             <div class="row">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
                     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                        <input type="text" class="data-input" [placeholder]="translations.Get('Books_Publisher')" formControlName="BPublisherGID" [disabled]="true"/>
+                        <input type="text" class="data-input" [placeholder]="translations.Get('Books_Publisher')" formControlName="BPublisherGID"/>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     </span>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Genre')" formControlName="BGenre" [disabled]="true"/>
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Genre')" formControlName="BGenre"/>
                 </div>
             </div>
             <div class="row">
@@ -108,7 +108,7 @@
                     </span>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Description')" formControlName="BDescription" required/>
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Description')" formControlName="BDescription"/>
                 </div>
                 <div class="error-input row" *ngIf="form.get('BDescription')?.errors?.['maxlength']">
                     {{translations.Get('Books_BDescription_Max255')}}

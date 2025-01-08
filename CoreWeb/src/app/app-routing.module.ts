@@ -45,7 +45,7 @@ const routes: Routes = [
     title: "Książki"
   },
   {
-    path: 'book/:bgid',
+    path: 'books/:bgid',
     component: BookPageComponent,
     title: "Książka"
   },

@@ -27,6 +27,7 @@ export class BooksService {
     }
 
     AddBook(model: any) : Observable<any>{
+        console.log(model)
         return this.http.post<any>(this.apiUrl + 'api/Books/AddBook', model, { headers: GetToken(this.cookiesService) })
     }
 
