@@ -5,7 +5,7 @@ import { AppState } from '../../app.state';
 import { TranslationService } from 'src/app/services/translate.service';
 import { Router } from '@angular/router';
 import { MainUIErrorHandler } from 'src/app/error-handlers/main-ui-error-handler.component';
-import { selectBooks, selectFilters } from './books-page-state/books-page-state.selectors';
+import { selectBooks, selectCount, selectFilters } from './books-page-state/books-page-state.selectors';
 import { cleanState, deleteBook, loadBooks, updatePaginationDataBooks } from './books-page-state/books-page-state.actions';
 
 @Component({
@@ -14,11 +14,13 @@ import { cleanState, deleteBook, loadBooks, updatePaginationDataBooks } from './
   styleUrls: ['./books-page.component.scss']
 })
 export class BooksPageComponent implements OnInit, OnDestroy {
-
   public subscriptions: Subscription[];
+
+  public count: number = 0;
 
   public Filters$ = this.store.select(selectFilters);
   public Books$ = this.store.select(selectBooks);
+  public Count$ = this.store.select(selectCount);
 
   constructor(public store: Store<AppState>, 
     public translations: TranslationService,
@@ -30,6 +32,7 @@ export class BooksPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadBooks())));
+    this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
   }
 
   public AddBook = () => this.router.navigate(['books/0']);

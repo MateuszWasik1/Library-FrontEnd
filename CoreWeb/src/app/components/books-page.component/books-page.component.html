@@ -9,6 +9,12 @@
             </div>
         </div>
 
+        <div class="row margin-top-15 filter-row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <app-paginator [length]="count" (paginationData)="UpdatePaginationData($event)"></app-paginator>
+            </div>
+        </div>
+
         <div class="row padding-top-15 padding-bottom-15">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 {{translations.Get('Books_Author')}}
@@ -30,6 +36,7 @@
             </div>
             <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3"></div>
         </div>
+
         <div *ngFor="let book of books;">
             <div class="row data-row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
