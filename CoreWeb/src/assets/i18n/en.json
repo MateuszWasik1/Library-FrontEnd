@@ -34,6 +34,7 @@
     "TopMenu_Notes": "Notes",
     "TopMenu_Users": "Users",
     "TopMenu_Books": "Books",
+    "TopMenu_Authors": "Authors",
     "Categories_New_Category": "New Category",
     "Categories_Category": "Category",
     "Categories_Name_Required": "Name field is required.",
@@ -194,5 +195,10 @@
     "Books_BISBN_Min13": "Minimal number of characters is 13",
     "Books_BISBN_Max13": "Maximum number of characters is 13",
     "Books_BLanguage_Max255": "Maximum number of characters is 255",
-    "Books_BDescription_Max255": "Maximum number of characters is 13"
+    "Books_BDescription_Max255": "Maximum number of characters is 13",
+    "Authors_AFirstName": "FirstName",
+    "Authors_AMiddleName": "MiddleName",
+    "Authors_ALastName": "LastName",
+    "Authors_ANickName": "NickName",
+    "Authors_ANationality": "Nationality"
 }

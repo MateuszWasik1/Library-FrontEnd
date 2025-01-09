@@ -45,6 +45,10 @@ import { BooksReducer } from './components/books-page.component/books-page-state
 import { BooksEffects } from './components/books-page.component/books-page-state/books-page-state.effects';
 import { BooksPageComponent } from './components/books-page.component/books-page.component';
 import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
+import { AuthorsPageComponent } from './components/authors-page.component/authors-page.component';
+import { featureKeyAuthorsState } from './components/authors-page.component/authors-page-state/authors-page-state.state';
+import { AuthorsReducer } from './components/authors-page.component/authors-page-state/authors-page-state.reducer';
+import { AuthorsEffects } from './components/authors-page.component/authors-page-state/authors-page-state.effects';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,7 @@ import { BookPageComponent } from './components/books-page.component/book-page.c
     PaginatorComponent,
     BookPageComponent,
     BooksPageComponent,
+    AuthorsPageComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -93,8 +98,10 @@ import { BookPageComponent } from './components/books-page.component/book-page.c
     StoreModule.forFeature(featureKeyUserState, UserReducer),
     StoreModule.forFeature(featureKeyUsersState, UsersReducer),
     StoreModule.forFeature(featureKeyBooksState, BooksReducer),
+    StoreModule.forFeature(featureKeyAuthorsState, AuthorsReducer),
 
-    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects]),
+
+    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects, AuthorsEffects]),
     BrowserAnimationsModule,
   ],
   providers: [

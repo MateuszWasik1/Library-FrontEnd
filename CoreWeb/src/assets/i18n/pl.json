@@ -35,6 +35,7 @@
     "TopMenu_Notes": "Notatki",
     "TopMenu_Users": "Użytkownicy",
     "TopMenu_Books": "Książki",
+    "TopMenu_Authors": "Autorzy",
     "Categories_New_Category": "Nowa kategoria",
     "Categories_Category": "Kategoria",
     "Categories_Name_Required": "Uzupełnienie pola nazwy jest wymagane.",
@@ -196,5 +197,10 @@
     "Books_BISBN_Min13": "Minimalna liczba znaków to 13",
     "Books_BISBN_Max13": "Maksymalna liczba znaków to 13",
     "Books_BLanguage_Max255": "Maksymalna liczba znaków to 255",
-    "Books_BDescription_Max255": "Maksymalna liczba znaków to 13"
+    "Books_BDescription_Max255": "Maksymalna liczba znaków to 13",
+    "Authors_AFirstName": "Imię",
+    "Authors_AMiddleName": "Drugie imię",
+    "Authors_ALastName": "Nazwisko",
+    "Authors_ANickName": "Przydomek",
+    "Authors_ANationality": "Narodowość"
 }
