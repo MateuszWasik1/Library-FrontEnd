@@ -5,12 +5,12 @@ import { PublishersState } from "./publishers-page-state.state";
 var initialStateOfPublishersPage: PublishersState = {
     Publishers: [],
     Publisher: {
-        AGID: "",
-        AFirstName: "",
-        AMiddleName: "",
-        ALastName: "",
-        ANickName: "",
-        ANationality: "",
+        PGID: "",
+        PName: "",
+        PCountry: "",
+        PCity: "",
+        PEmail: "",
+        PPhone: "",
     },
     Filters: {
         Skip: 0,
@@ -27,12 +27,12 @@ export const PublishersReducer = createReducer<PublishersState>(
     on(Actions.loadPublisherSuccess, (state, { Publisher }) => ({
         ...state,
         Publisher: {
-            AGID: Publisher.agid,
-            AFirstName: Publisher.aFirstName,
-            AMiddleName: Publisher.aMiddleName,
-            ALastName: Publisher.aLastName,
-            ANickName: Publisher.aNickName,
-            ANationality: Publisher.aNationality
+            PGID: Publisher.pgid,
+            PName: Publisher.pName,
+            PCountry: Publisher.pCountry,
+            PCity: Publisher.pCity,
+            PEmail: Publisher.pEmail,
+            PPhone: Publisher.pPhone
         },
     })),
     
@@ -101,12 +101,12 @@ export const PublishersReducer = createReducer<PublishersState>(
         ...state,
         Publishers: [],
         Publisher: {
-            AGID: "",
-            AFirstName: "",
-            AMiddleName: "",
-            ALastName: "",
-            ANickName: "",
-            ANationality: "",
+            PGID: "",
+            PName: "",
+            PCountry: "",
+            PCity: "",
+            PEmail: "",
+            PPhone: "",
         },
         Filters: {
             Skip: 0,

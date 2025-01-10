@@ -9,6 +9,7 @@ import { BookPageComponent } from './components/books-page.component/book-page.c
 import { AuthorsPageComponent } from './components/authors-page.component/authors-page.component';
 import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
 import { PublishersPageComponent } from './components/publisher-page.component/publishers-page.component';
+import { PublisherPageComponent } from './components/publisher-page.component/publisher-page.component/publisher-page.component';
 
 const routes: Routes = [
   {
@@ -63,7 +64,7 @@ const routes: Routes = [
   },
   {
     path: 'publishers/:agid',
-    component: AuthorPageComponent,
+    component: PublisherPageComponent,
     title: "Wydawnictwo"
   },
   {

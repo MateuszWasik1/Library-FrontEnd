@@ -27,6 +27,8 @@
     "General_Close": "Zamknij",
     "General_Pick_Date_And_Time": "Wybierz datę i czas",
     "General_Required": "Pole wymagane",
+    "Generale_Min1": "Minimalna liczba znaków to 1",
+    "General_Max255": "Maksymalna liczba znaków to 255",
     "TopMenu_Categories": "Kategorie",
     "TopMenu_Tasks": "Zadania",
     "TopMenu_Savings": "Oszczędności",
@@ -217,5 +219,7 @@
     "Publishers_PCountry": "Kraj",
     "Publishers_PCity": "Miasto",
     "Publishers_PEmail": "Email",
-    "Publishers_PPhone": "Telefon"
+    "Publishers_PPhone": "Telefon",
+    "Publishers_New_Publisher": "Nowe wydawnictwo",
+    "Publishers_Publisher": "Wydawnictwo"
 }

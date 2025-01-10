@@ -54,6 +54,7 @@ import { PublishersPageComponent } from './components/publisher-page.component/p
 import { featureKeyPublishersState } from './components/publisher-page.component/publishers-page-state/publishers-page-state.state';
 import { PublishersReducer } from './components/publisher-page.component/publishers-page-state/publishers-page-state.reducer';
 import { PublishersEffects } from './components/publisher-page.component/publishers-page-state/publishers-page-state.effects';
+import { PublisherPageComponent } from './components/publisher-page.component/publisher-page.component/publisher-page.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { PublishersEffects } from './components/publisher-page.component/publish
     BooksPageComponent,
     AuthorPageComponent,
     AuthorsPageComponent,
+    PublisherPageComponent,
     PublishersPageComponent
   ],
   imports: [

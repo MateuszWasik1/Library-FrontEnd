@@ -8,7 +8,7 @@ import { AppState } from "../../../app.state";
 import { APIErrorHandler } from "../../../error-handlers/api-error-handler";
 import { Router } from "@angular/router";
 import { selectFilters } from "./publishers-page-state.selectors";
-import { PublishersService } from "../../../services/Publishers.service";
+import { PublishersService } from "../../../services/publishers.service";
 
 @Injectable()
 export class PublishersEffects {
@@ -24,7 +24,7 @@ export class PublishersEffects {
         return this.actions.pipe(
             ofType(PublishersActions.loadPublisher),
             switchMap((params) => {
-                return this.PublishersService.GetPublisher(params.AGID).pipe(
+                return this.publishersService.GetPublisher(params.PGID).pipe(
                     map((result) => PublishersActions.loadPublisherSuccess({ Publisher: result })),
                     catchError(error => of(PublishersActions.loadPublisherError({ error: this.errorHandler.handleAPIError(error) }))),
                 )
@@ -37,7 +37,7 @@ export class PublishersEffects {
             ofType(PublishersActions.loadPublishers),
             withLatestFrom(this.store.select(selectFilters)),
             switchMap((params) => {
-                return this.PublishersService.GetPublishers(params[1].Skip, params[1].Take).pipe(
+                return this.publishersService.GetPublishers(params[1].Skip, params[1].Take).pipe(
                     map((result) => PublishersActions.loadPublishersSuccess({ Publishers: result })),
                     catchError(error => of(PublishersActions.loadPublishersError({ error: this.errorHandler.handleAPIError(error) }))),
                 )
@@ -49,7 +49,7 @@ export class PublishersEffects {
         return this.actions.pipe(
             ofType(PublishersActions.addPublisher),
             switchMap((params) => {
-                return this.PublishersService.AddPublisher(params.Publisher).pipe(
+                return this.publishersService.AddPublisher(params.Publisher).pipe(
                     map(() => PublishersActions.addPublisherSuccess()),
                     tap(() => this.router.navigate(["/Publishers"])),
                     catchError(error => of(PublishersActions.addPublisherError({ error: this.errorHandler.handleAPIError(error) })))
@@ -62,7 +62,7 @@ export class PublishersEffects {
         return this.actions.pipe(
             ofType(PublishersActions.updatePublisher),
             switchMap((params) => {
-                return this.PublishersService.UpdatePublisher(params.Publisher).pipe(
+                return this.publishersService.UpdatePublisher(params.Publisher).pipe(
                     map(() => PublishersActions.updatePublisherSuccess()),
                     tap(() => this.router.navigate(["/Publishers"])),
                     catchError(error => of(PublishersActions.updatePublisherError({ error: this.errorHandler.handleAPIError(error) })))
@@ -75,8 +75,8 @@ export class PublishersEffects {
         return this.actions.pipe(
             ofType(PublishersActions.deletePublisher),
             switchMap((params) => {
-                return this.PublishersService.DeletePublisher(params.agid).pipe(
-                    map(() => PublishersActions.deletePublisherSuccess({ agid: params.agid })),
+                return this.publishersService.DeletePublisher(params.pgid).pipe(
+                    map(() => PublishersActions.deletePublisherSuccess({ pgid: params.pgid })),
                     catchError(error => of(PublishersActions.deletePublisherError({ error: this.errorHandler.handleAPIError(error) })))
                 )
             })
