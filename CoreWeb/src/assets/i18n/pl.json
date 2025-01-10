@@ -202,5 +202,14 @@
     "Authors_AMiddleName": "Drugie imię",
     "Authors_ALastName": "Nazwisko",
     "Authors_ANickName": "Przydomek",
-    "Authors_ANationality": "Narodowość"
+    "Authors_ANationality": "Narodowość",
+    "Authors_New_Author": "Nowy autor",
+    "Authors_Author": "Autor",
+    "Authors_AFirstName_Min1": "Minimalna liczba znaków to 1",
+    "Authors_AFirstName_Max255": "Maksymalna liczba znaków to 255",
+    "Authors_AMiddleName_Max255": "Maksymalna liczba znaków to 255",
+    "Authors_ALastName_Min1": "Minimalna liczba znaków to 1",
+    "Authors_ALastName_Max255": "Maksymalna liczba znaków to 255",
+    "Authors_ANickName_Max255": "Maksymalna liczba znaków to 255",
+    "Authors_ANationality_Max255": "Maksymalna liczba znaków to 255"
 }

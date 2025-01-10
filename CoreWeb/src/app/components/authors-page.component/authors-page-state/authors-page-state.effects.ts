@@ -8,6 +8,7 @@ import { AppState } from "../../../app.state";
 import { APIErrorHandler } from "../../../error-handlers/api-error-handler";
 import { Router } from "@angular/router";
 import { selectFilters } from "./authors-page-state.selectors";
+import { AuthorsService } from "../../../services/authors.service";
 
 @Injectable()
 export class AuthorsEffects {

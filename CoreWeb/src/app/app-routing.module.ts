@@ -7,6 +7,7 @@ import { UsersPageComponent } from './components/users-page.component/users-page
 import { BooksPageComponent } from './components/books-page.component/books-page.component';
 import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
 import { AuthorsPageComponent } from './components/authors-page.component/authors-page.component';
+import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
 
 const routes: Routes = [
   {
@@ -51,7 +52,7 @@ const routes: Routes = [
   },
   {
     path: 'authors/:agid',
-    component: AuthorsPageComponent,
+    component: AuthorPageComponent,
     title: "Autor"
   },
   {

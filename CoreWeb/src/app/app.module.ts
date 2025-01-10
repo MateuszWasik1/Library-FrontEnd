@@ -49,6 +49,7 @@ import { AuthorsPageComponent } from './components/authors-page.component/author
 import { featureKeyAuthorsState } from './components/authors-page.component/authors-page-state/authors-page-state.state';
 import { AuthorsReducer } from './components/authors-page.component/authors-page-state/authors-page-state.reducer';
 import { AuthorsEffects } from './components/authors-page.component/authors-page-state/authors-page-state.effects';
+import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AuthorsEffects } from './components/authors-page.component/authors-page
     PaginatorComponent,
     BookPageComponent,
     BooksPageComponent,
+    AuthorPageComponent,
     AuthorsPageComponent
   ],
   imports: [

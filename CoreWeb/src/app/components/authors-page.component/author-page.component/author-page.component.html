@@ -1,0 +1,99 @@
+<section class="body">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+            <h1 class="page-title" *ngIf="isNewAuthorView">{{translations.Get('Authors_New_Author')}}</h1>
+
+            <ng-container *ngIf="Author$ | async as author">
+                <h1 class="page-title" *ngIf="!isNewAuthorView">{{translations.Get('Authors_Author')}}: {{author.AFirstName}} {{author.AMiddleName}} {{author.ALastName}}</h1>
+            </ng-container>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+            <button mat-raised-button class="primary-btn float-right" (click)="SaveAuthor()" [disabled]="form.invalid">{{translations.Get('General_Save')}}</button>
+            <button mat-raised-button class="float-right margin-right-15" (click)="Cancel()">{{translations.Get('General_Cancel')}}</button>
+        </div>
+    </div>
+
+    <div class="row categories-row" [formGroup]="form">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
+                    <span class="data-input-text">
+                        {{translations.Get('Authors_AFirstName')}}:
+                    </span>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Authors_AFirstName')" formControlName="AFirstName"/>
+                </div>
+                <div class="error-input row" *ngIf="form.get('AFirstName')?.errors?.['required']">
+                    {{translations.Get('General_Required')}}
+                </div>
+                <div class="error-input row" *ngIf="form.get('AFirstName')?.errors?.['minlength']">
+                    {{translations.Get('Authors_AFirstName_Min1')}}
+                </div>
+                <div class="error-input row" *ngIf="form.get('AFirstName')?.errors?.['maxlength']">
+                    {{translations.Get('Authors_AFirstName_Max255')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
+                    <span class="data-input-text">
+                        {{translations.Get('Authors_AMiddleName')}}:
+                    </span>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                        <input type="text" class="data-input" [placeholder]="translations.Get('Authors_AMiddleName')" formControlName="AMiddleName"/>
+                    </div>
+                </div>
+                <div class="error-input row" *ngIf="form.get('AMiddleName')?.errors?.['maxlength']">
+                    {{translations.Get('Authors_AMiddleName_Max255')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
+                    <span class="data-input-text">
+                        {{translations.Get('Authors_ALastName')}}:
+                    </span>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Authors_ALastName')" formControlName="ALastName"/>
+                </div>
+                <div class="error-input row" *ngIf="form.get('ALastName')?.errors?.['required']">
+                    {{translations.Get('General_Required')}}
+                </div>
+                <div class="error-input row" *ngIf="form.get('ALastName')?.errors?.['minlength']">
+                    {{translations.Get('Authors_ALastName_Min1')}}
+                </div>
+                <div class="error-input row" *ngIf="form.get('ALastName')?.errors?.['maxlength']">
+                    {{translations.Get('Authors_ALastName_Max255')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
+                    <span class="data-input-text">
+                        {{translations.Get('Authors_ANickName')}}:
+                    </span>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Authors_ANickName')" formControlName="ANickName"/>
+                </div>
+                <div class="error-input row" *ngIf="form.get('ANickName')?.errors?.['maxlength']">
+                    {{translations.Get('Authors_ANickName_Max255')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
+                    <span class="data-input-text">
+                        {{translations.Get('Authors_ANationality')}}:
+                    </span>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
+                    <input type="text" class="data-input" [placeholder]="translations.Get('Authors_ANationality')" formControlName="ANationality"/>
+                </div>
+                <div class="error-input row" *ngIf="form.get('ANationality')?.errors?.['maxlength']">
+                    {{translations.Get('Authors_ANationality_Max255')}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
