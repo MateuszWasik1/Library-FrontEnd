@@ -50,6 +50,11 @@ import { featureKeyAuthorsState } from './components/authors-page.component/auth
 import { AuthorsReducer } from './components/authors-page.component/authors-page-state/authors-page-state.reducer';
 import { AuthorsEffects } from './components/authors-page.component/authors-page-state/authors-page-state.effects';
 import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
+import { PublishersPageComponent } from './components/publisher-page.component/publishers-page.component';
+import { featureKeyPublishersState } from './components/publisher-page.component/publishers-page-state/publishers-page-state.state';
+import { PublishersReducer } from './components/publisher-page.component/publishers-page-state/publishers-page-state.reducer';
+import { PublishersEffects } from './components/publisher-page.component/publishers-page-state/publishers-page-state.effects';
+import { PublisherPageComponent } from './components/publisher-page.component/publisher-page.component/publisher-page.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +68,9 @@ import { AuthorPageComponent } from './components/authors-page.component/author-
     BookPageComponent,
     BooksPageComponent,
     AuthorPageComponent,
-    AuthorsPageComponent
+    AuthorsPageComponent,
+    PublisherPageComponent,
+    PublishersPageComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -101,9 +108,9 @@ import { AuthorPageComponent } from './components/authors-page.component/author-
     StoreModule.forFeature(featureKeyUsersState, UsersReducer),
     StoreModule.forFeature(featureKeyBooksState, BooksReducer),
     StoreModule.forFeature(featureKeyAuthorsState, AuthorsReducer),
+    StoreModule.forFeature(featureKeyPublishersState, PublishersReducer),
 
-
-    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects, AuthorsEffects]),
+    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects, AuthorsEffects, PublishersEffects]),
     BrowserAnimationsModule,
   ],
   providers: [

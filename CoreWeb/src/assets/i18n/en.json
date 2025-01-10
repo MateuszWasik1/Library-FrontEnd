@@ -26,6 +26,8 @@
     "General_Close": "Close",
     "General_Pick_Date_And_Time": "Pick date and time",
     "General_Required": "Field is required",
+    "Generale_Min1": "Minimal number of characters is 1",
+    "General_Max255": "Maximum number of characters is 255",
     "TopMenu_Categories": "Categories",
     "TopMenu_Tasks": "Tasks",
     "TopMenu_Savings": "Savings",
@@ -35,6 +37,7 @@
     "TopMenu_Users": "Users",
     "TopMenu_Books": "Books",
     "TopMenu_Authors": "Authors",
+    "TopMenu_Publishers": "Publishers",
     "Categories_New_Category": "New Category",
     "Categories_Category": "Category",
     "Categories_Name_Required": "Name field is required.",
@@ -200,5 +203,12 @@
     "Authors_AMiddleName": "MiddleName",
     "Authors_ALastName": "LastName",
     "Authors_ANickName": "NickName",
-    "Authors_ANationality": "Nationality"
+    "Authors_ANationality": "Nationality",
+    "Publishers_PName": "Name",
+    "Publishers_PCountry": "Country",
+    "Publishers_PCity": "City",
+    "Publishers_PEmail": "Email",
+    "Publishers_PPhone": "Phone",
+    "Publishers_New_Publisher": "New Publisher",
+    "Publishers_Publisher": "Publisher"
 }
