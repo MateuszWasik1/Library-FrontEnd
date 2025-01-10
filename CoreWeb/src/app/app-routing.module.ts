@@ -6,6 +6,8 @@ import { UserPageComponent } from './components/user-page.component/user-page.co
 import { UsersPageComponent } from './components/users-page.component/users-page.component';
 import { BooksPageComponent } from './components/books-page.component/books-page.component';
 import { BookPageComponent } from './components/books-page.component/book-page.component/book-page.component';
+import { AuthorsPageComponent } from './components/authors-page.component/authors-page.component';
+import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,16 @@ const routes: Routes = [
     path: 'books/:bgid',
     component: BookPageComponent,
     title: "Książka"
+  },
+  {
+    path: 'authors',
+    component: AuthorsPageComponent,
+    title: "Autorzy"
+  },
+  {
+    path: 'authors/:agid',
+    component: AuthorPageComponent,
+    title: "Autor"
   },
   {
     path: '**',
