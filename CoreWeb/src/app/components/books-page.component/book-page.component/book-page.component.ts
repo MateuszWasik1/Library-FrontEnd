@@ -22,6 +22,8 @@ export class BookPageComponent implements OnInit, OnDestroy {
   public form: FormGroup = new FormGroup({});
   public bgid: string = "";
   public isNewBookView: boolean = true;
+  public genres: any[] = []
+  public selectedGenre: number = 0;
 
   public Book$ = this.store.select(selectBook);
   public ErrorMessage$ = this.store.select(selectErrorMessage);
@@ -33,6 +35,14 @@ export class BookPageComponent implements OnInit, OnDestroy {
     public errorHandler: MainUIErrorHandler)
   {
     this.subscriptions = []
+
+    this.genres = [
+      {id: '1', name: 'Bajka'},
+      {id: '2', name: 'Biografia'},
+      {id: '3', name: 'Fantastyka'},
+      {id: '4', name: 'Powieść'},
+      {id: '5', name: 'Romans'},
+    ];
   }
   ngOnInit(): void {
     this.bgid = this.route.snapshot.paramMap.get('bgid') ?? "";
@@ -42,17 +52,19 @@ export class BookPageComponent implements OnInit, OnDestroy {
       this.store.dispatch(loadBook({ BGID: this.bgid }));
 
     this.subscriptions.push(
-      this.Book$.subscribe(x =>{
+      this.Book$.subscribe(x => {
         this.form = new FormGroup({
           BGID: new FormControl( x.BGID, { validators: [] }),
           BAuthorGID: new FormControl( { value: x.BAuthorGID, disabled: true }, { validators: [] }),
           BPublisherGID: new FormControl( { value: x.BPublisherGID, disabled: true }, { validators: [] }),
           BTitle: new FormControl( x.BTitle, { validators: [ Validators.required, Validators.minLength(3), Validators.maxLength(255) ] }),
           BISBN: new FormControl( x.BISBN, { validators: [ Validators.required, Validators.minLength(13), Validators.maxLength(13) ] }),
-          BGenre: new FormControl( { value: x.BGenre, disabled: true }, { validators: [] }),
+          BGenre: new FormControl( x.BGenre, { validators: [] }),
           BLanguage: new FormControl( x.BLanguage, { validators: [ Validators.required, Validators.maxLength(255) ] }),
           BDescription: new FormControl( x.BDescription, { validators: [ Validators.maxLength(2000) ] }),
         })
+
+        this.selectedGenre = this.genres[x.BGenre - 1].id;
       })
     );
 
@@ -63,6 +75,8 @@ export class BookPageComponent implements OnInit, OnDestroy {
     );
   }
 
+  public DisplayGenre = (genre: number) => this.genres[genre].name;
+
   public SaveBook = () => {
     let model = {
       "BGID": this.form.get("BGID")?.value,
@@ -70,7 +84,7 @@ export class BookPageComponent implements OnInit, OnDestroy {
       "BPublisherGID": Guid.create().toString(),//this.form.get("BPublisherGID")?.value,
       "BTitle": this.form.get("BTitle")?.value,
       "BISBN": this.form.get("BISBN")?.value,
-      "BGenre": this.form.get("BGenre")?.value,
+      "BGenre": this.selectedGenre,
       "BLanguage": this.form.get("BLanguage")?.value,
       "BDescription": this.form.get("BDescription")?.value,
     }

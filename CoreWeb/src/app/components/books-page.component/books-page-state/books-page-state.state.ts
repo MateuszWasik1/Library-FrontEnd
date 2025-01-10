@@ -1,3 +1,5 @@
+import { GenreEnum } from "../../../enums/GenreEnum";
+
 export const featureKeyBooksState = 'books-page-state';
 
 export interface BooksState {
@@ -8,7 +10,7 @@ export interface BooksState {
         BPublisherGID: string
         BTitle: string
         BISBN: string
-        BGenre: number
+        BGenre: GenreEnum
         BLanguage: string
         BDescription: string
     },

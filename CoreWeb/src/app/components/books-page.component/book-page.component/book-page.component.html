@@ -82,7 +82,13 @@
                     </span>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Genre')" formControlName="BGenre"/>
+                    <mat-form-field class="margin-left-30">
+                        <mat-select [(value)]="selectedGenre"> 
+                            <mat-option *ngFor="let genre of genres;" [value]="genre['id']">
+                                {{genre['name']}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row">

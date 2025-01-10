@@ -16,6 +16,7 @@ import { cleanState, deleteBook, loadBooks, updatePaginationDataBooks } from './
 export class BooksPageComponent implements OnInit, OnDestroy {
   public subscriptions: Subscription[];
 
+  public genres: any[] = []
   public count: number = 0;
 
   public Filters$ = this.store.select(selectFilters);
@@ -28,12 +29,22 @@ export class BooksPageComponent implements OnInit, OnDestroy {
     public errorHandler: MainUIErrorHandler)
   {
     this.subscriptions = []
+
+    this.genres = [
+      {id: '1', name: 'Bajka'},
+      {id: '2', name: 'Biografia'},
+      {id: '3', name: 'Fantastyka'},
+      {id: '4', name: 'Powieść'},
+      {id: '5', name: 'Romans'},
+    ];
   }
 
   ngOnInit(): void {
     this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadBooks())));
     this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
   }
+
+  public DisplayGenre = (genre: number) => this.genres[genre - 1].name; //- 1 because genres ids starts with 1 not 0
 
   public AddBook = () => this.router.navigate(['books/0']);
 

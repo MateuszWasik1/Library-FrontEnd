@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import * as Actions from "./books-page-state.actions"
 import { BooksState } from "./books-page-state.state";
+import { GenreEnum } from "../../../enums/GenreEnum";
 
 var initialStateOfBooksPage: BooksState = {
     Books: [],
@@ -10,7 +11,7 @@ var initialStateOfBooksPage: BooksState = {
         BPublisherGID: "",
         BTitle: "",
         BISBN: "",
-        BGenre: 1,
+        BGenre: GenreEnum.Fable,
         BLanguage: "",
         BDescription: "",
     },
@@ -110,7 +111,7 @@ export const BooksReducer = createReducer<BooksState>(
             BPublisherGID: "",
             BTitle: "",
             BISBN: "",
-            BGenre: 1,
+            BGenre: GenreEnum.Fable,
             BLanguage: "",
             BDescription: "",
         },
