@@ -63,7 +63,7 @@ const routes: Routes = [
     title: "Wydawnictwa"
   },
   {
-    path: 'publishers/:agid',
+    path: 'publishers/:pgid',
     component: PublisherPageComponent,
     title: "Wydawnictwo"
   },

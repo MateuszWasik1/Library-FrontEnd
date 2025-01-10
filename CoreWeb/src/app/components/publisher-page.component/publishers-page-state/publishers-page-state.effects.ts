@@ -51,7 +51,7 @@ export class PublishersEffects {
             switchMap((params) => {
                 return this.publishersService.AddPublisher(params.Publisher).pipe(
                     map(() => PublishersActions.addPublisherSuccess()),
-                    tap(() => this.router.navigate(["/Publishers"])),
+                    tap(() => this.router.navigate(["/publishers"])),
                     catchError(error => of(PublishersActions.addPublisherError({ error: this.errorHandler.handleAPIError(error) })))
                 )
             })
@@ -64,7 +64,7 @@ export class PublishersEffects {
             switchMap((params) => {
                 return this.publishersService.UpdatePublisher(params.Publisher).pipe(
                     map(() => PublishersActions.updatePublisherSuccess()),
-                    tap(() => this.router.navigate(["/Publishers"])),
+                    tap(() => this.router.navigate(["/publishers"])),
                     catchError(error => of(PublishersActions.updatePublisherError({ error: this.errorHandler.handleAPIError(error) })))
                 )
             })

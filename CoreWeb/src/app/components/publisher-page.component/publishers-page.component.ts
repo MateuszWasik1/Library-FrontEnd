@@ -35,7 +35,7 @@ export class PublishersPageComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
   }
 
-  public AddPublisher = () => this.router.navigate(['authors/0']);
+  public AddPublisher = () => this.router.navigate(['publishers/0']);
 
   public UpdatePublisher = (pgid: string) => this.router.navigate([`publishers/${pgid}`]);
 

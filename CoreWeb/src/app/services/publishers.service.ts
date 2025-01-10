@@ -12,8 +12,8 @@ export class PublishersService {
     public apiUrl = environment.apiUrl;
     constructor( private http: HttpClient, private cookiesService: CookieService ) { }
 
-    GetPublisher(AGID: any) : Observable<any>{
-        let params = new HttpParams().set("agid", AGID);
+    GetPublisher(PGID: any) : Observable<any>{
+        let params = new HttpParams().set("pgid", PGID);
 
         return this.http.get<any>(this.apiUrl + 'api/Publishers/GetPublisher', { params: params, headers: GetToken(this.cookiesService) })
     }
