@@ -9,6 +9,7 @@ import { APIErrorHandler } from "../../../error-handlers/api-error-handler";
 import { Router } from "@angular/router";
 import { BooksService } from "../../../services/books.service";
 import { selectFilters } from "./books-page-state.selectors";
+import { AuthorsService } from "src/app/services/authors.service";
 
 @Injectable()
 export class BooksEffects {
@@ -16,6 +17,7 @@ export class BooksEffects {
         private actions: Actions,
         private router: Router,
         private booksService: BooksService,
+        private authorsService: AuthorsService,
         public store: Store<AppState>,
         private errorHandler: APIErrorHandler) {
     }
@@ -40,6 +42,19 @@ export class BooksEffects {
                 return this.booksService.GetBooks(params[1].Skip, params[1].Take).pipe(
                     map((result) => BooksActions.loadBooksSuccess({ Books: result })),
                     catchError(error => of(BooksActions.loadBooksError({ error: this.errorHandler.handleAPIError(error) }))),
+                )
+            })
+        )
+    });
+
+    loadAuthors = createEffect(() => {
+        return this.actions.pipe(
+            ofType(BooksActions.loadAuthors),
+            withLatestFrom(this.store.select(selectFilters)),
+            switchMap(() => {
+                return this.authorsService.GetAuthors(0, 999).pipe(
+                    map((result) => BooksActions.loadAuthorsSuccess({ Authors: result })),
+                    catchError(error => of(BooksActions.loadAuthorsError({ error: this.errorHandler.handleAPIError(error) }))),
                 )
             })
         )

@@ -189,6 +189,7 @@
     "Books_Title": "title",
     "Books_ISBN": "ISBN",
     "Books_Genre": "Genre",
+    "Books_Genres": "Genres",
     "Books_Language": "Language",
     "Books_Description": "Description",
     "Books_New_Book": "New book",

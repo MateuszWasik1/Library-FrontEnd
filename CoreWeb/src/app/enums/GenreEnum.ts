@@ -1,4 +1,5 @@
 export enum GenreEnum {
+    All = 0,
     Fable = 1,
     Biography = 2,
     Fantasy = 3,

@@ -7,6 +7,8 @@ export const selectBook = createSelector(selectBooksState, (state: BooksState) =
 
 export const selectBooks = createSelector(selectBooksState, (state: BooksState) => state.Books);
 
+export const selectAuthors = createSelector(selectBooksState, (state: BooksState) => state.Authors);
+
 export const selectFilters = createSelector(selectBooksState, (state: BooksState) => state.Filters);
 
 export const selectCount = createSelector(selectBooksState, (state: BooksState) => state.BooksCount);
