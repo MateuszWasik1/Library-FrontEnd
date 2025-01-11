@@ -9,6 +9,8 @@ export const selectBooks = createSelector(selectBooksState, (state: BooksState) 
 
 export const selectAuthors = createSelector(selectBooksState, (state: BooksState) => state.Authors);
 
+export const selectPublishers = createSelector(selectBooksState, (state: BooksState) => state.Publishers);
+
 export const selectFilters = createSelector(selectBooksState, (state: BooksState) => state.Filters);
 
 export const selectCount = createSelector(selectBooksState, (state: BooksState) => state.BooksCount);

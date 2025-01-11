@@ -9,7 +9,8 @@ import { APIErrorHandler } from "../../../error-handlers/api-error-handler";
 import { Router } from "@angular/router";
 import { BooksService } from "../../../services/books.service";
 import { selectFilters } from "./books-page-state.selectors";
-import { AuthorsService } from "src/app/services/authors.service";
+import { AuthorsService } from "../../../services/authors.service";
+import { PublishersService } from "../../../services/publishers.service";
 
 @Injectable()
 export class BooksEffects {
@@ -18,6 +19,7 @@ export class BooksEffects {
         private router: Router,
         private booksService: BooksService,
         private authorsService: AuthorsService,
+        private publishersService: PublishersService,
         public store: Store<AppState>,
         private errorHandler: APIErrorHandler) {
     }
@@ -39,7 +41,7 @@ export class BooksEffects {
             ofType(BooksActions.loadBooks),
             withLatestFrom(this.store.select(selectFilters)),
             switchMap((params) => {
-                return this.booksService.GetBooks(params[1].Skip, params[1].Take).pipe(
+                return this.booksService.GetBooks(params[1].Skip, params[1].Take, params[1].Genre, params[1].Author, params[1].Publisher).pipe(
                     map((result) => BooksActions.loadBooksSuccess({ Books: result })),
                     catchError(error => of(BooksActions.loadBooksError({ error: this.errorHandler.handleAPIError(error) }))),
                 )
@@ -55,6 +57,19 @@ export class BooksEffects {
                 return this.authorsService.GetAuthors(0, 999).pipe(
                     map((result) => BooksActions.loadAuthorsSuccess({ Authors: result })),
                     catchError(error => of(BooksActions.loadAuthorsError({ error: this.errorHandler.handleAPIError(error) }))),
+                )
+            })
+        )
+    });
+
+    loadPublishers = createEffect(() => {
+        return this.actions.pipe(
+            ofType(BooksActions.loadPublishers),
+            withLatestFrom(this.store.select(selectFilters)),
+            switchMap(() => {
+                return this.publishersService.GetPublishers(0, 999).pipe(
+                    map((result) => BooksActions.loadPublishersSuccess({ Publishers: result })),
+                    catchError(error => of(BooksActions.loadPublishersError({ error: this.errorHandler.handleAPIError(error) }))),
                 )
             })
         )

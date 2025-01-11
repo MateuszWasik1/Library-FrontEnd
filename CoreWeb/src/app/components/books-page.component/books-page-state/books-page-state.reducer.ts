@@ -2,10 +2,12 @@ import { createReducer, on } from "@ngrx/store";
 import * as Actions from "./books-page-state.actions"
 import { BooksState } from "./books-page-state.state";
 import { GenreEnum } from "../../../enums/GenreEnum";
+import { Guid } from "guid-typescript";
 
 var initialStateOfBooksPage: BooksState = {
     Books: [],
     Authors: [],
+    Publishers: [],
     Book: {
         BGID: "",
         BAuthorGID: "",
@@ -20,7 +22,8 @@ var initialStateOfBooksPage: BooksState = {
         Skip: 0,
         Take: 10,
         Genre: GenreEnum.All,
-        Author: "",
+        Author: Guid.EMPTY,
+        Publisher: Guid.EMPTY,
     },
     BooksCount: 0,
     ErrorMessage: "",
@@ -68,6 +71,17 @@ export const BooksReducer = createReducer<BooksState>(
     })),
 
     on(Actions.loadAuthorsError, (state, { error }) => ({
+        ...state,
+        ErrorMessage: error
+    })),
+
+    //Load Authors
+    on(Actions.loadPublishersSuccess, (state, { Publishers }) => ({
+        ...state,
+        Publishers: Publishers.list,
+    })),
+
+    on(Actions.loadPublishersError, (state, { error }) => ({
         ...state,
         ErrorMessage: error
     })),
@@ -132,10 +146,20 @@ export const BooksReducer = createReducer<BooksState>(
         }
     })),
 
+    on(Actions.changeFilterPublisherValue, (state, { value }) => ({
+        ...state,
+        Filters: {
+            ...state.Filters,
+            Publisher: value
+        }
+    })),
+
+
     on(Actions.cleanState, (state) => ({
         ...state,
         Books: [],
         Authors: [],
+        Publishers: [],
         Book: {
             BGID: "",
             BAuthorGID: "",
@@ -150,7 +174,8 @@ export const BooksReducer = createReducer<BooksState>(
             Skip: 0,
             Take: 10,
             Genre: GenreEnum.All,
-            Author: "",
+            Author: Guid.EMPTY,
+            Publisher: Guid.EMPTY
         },
         BooksCount: 0,
         ErrorMessage: "",
