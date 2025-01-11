@@ -5,8 +5,8 @@ import { AppState } from '../../app.state';
 import { TranslationService } from 'src/app/services/translate.service';
 import { Router } from '@angular/router';
 import { MainUIErrorHandler } from 'src/app/error-handlers/main-ui-error-handler.component';
-import { selectBooks, selectCount, selectFilters } from './books-page-state/books-page-state.selectors';
-import { cleanState, deleteBook, loadBooks, updatePaginationDataBooks } from './books-page-state/books-page-state.actions';
+import { selectAuthors, selectBooks, selectCount, selectFilters, selectPublishers } from './books-page-state/books-page-state.selectors';
+import { cleanState, deleteBook, loadAuthors, loadBooks, updatePaginationDataBooks, changeFilterAuthorValue, changeFilterGenreValue,changeFilterPublisherValue, loadPublishers } from './books-page-state/books-page-state.actions';
 
 @Component({
   selector: 'app-books-page',
@@ -19,9 +19,13 @@ export class BooksPageComponent implements OnInit, OnDestroy {
   public genres: any[] = []
   public count: number = 0;
 
+  public selectedFilterGenre: any;
+
   public Filters$ = this.store.select(selectFilters);
   public Books$ = this.store.select(selectBooks);
   public Count$ = this.store.select(selectCount);
+  public Authors$ = this.store.select(selectAuthors);
+  public Publishers$ = this.store.select(selectPublishers);
 
   constructor(public store: Store<AppState>, 
     public translations: TranslationService,
@@ -31,6 +35,7 @@ export class BooksPageComponent implements OnInit, OnDestroy {
     this.subscriptions = []
 
     this.genres = [
+      {id: '0', name: 'Wszystkie'},
       {id: '1', name: 'Bajka'},
       {id: '2', name: 'Biografia'},
       {id: '3', name: 'Fantastyka'},
@@ -42,9 +47,17 @@ export class BooksPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadBooks())));
     this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
+    this.store.dispatch(loadAuthors())
+    this.store.dispatch(loadPublishers())
   }
 
-  public DisplayGenre = (genre: number) => this.genres[genre - 1].name; //- 1 because genres ids starts with 1 not 0
+  public DisplayGenre = (genre: number) => this.genres[genre].name;
+
+  public ChangeFilterGenreValue = (event: any) => this.store.dispatch(changeFilterGenreValue({ value: event.value }));
+
+  public ChangeFilterAuthorValue = (event: any) => this.store.dispatch(changeFilterAuthorValue({ value: event.value }));
+
+  public ChangeFilterPublisherValue = (event: any) => this.store.dispatch(changeFilterPublisherValue({ value: event.value }));
 
   public AddBook = () => this.router.navigate(['books/0']);
 

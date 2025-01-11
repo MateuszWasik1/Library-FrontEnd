@@ -4,6 +4,8 @@ export const featureKeyBooksState = 'books-page-state';
 
 export interface BooksState {
     Books: any[],
+    Authors: any[],
+    Publishers: any[],
     Book: {
         BGID: string
         BAuthorGID: string
@@ -17,6 +19,9 @@ export interface BooksState {
     Filters: {
         Skip: number,
         Take: number,
+        Genre: GenreEnum,
+        Author: string,
+        Publisher: string,
     },
     BooksCount: number,
     ErrorMessage: string,

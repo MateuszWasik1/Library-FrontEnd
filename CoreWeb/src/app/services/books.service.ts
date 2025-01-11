@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { CookieService } from "ngx-cookie-service";
 import { GetToken } from "../helpers/request.service";
 import { environment } from "src/environments/environment";
+import { GenreEnum } from "../enums/GenreEnum";
 
 @Injectable({
     providedIn: 'root'
@@ -18,10 +19,13 @@ export class BooksService {
         return this.http.get<any>(this.apiUrl + 'api/Books/GetBook', { params: params, headers: GetToken(this.cookiesService) })
     }
 
-    GetBooks(Skip: number, Take: number) : Observable<any>{
+    GetBooks(Skip: number, Take: number, Genre: GenreEnum, Author: string, Publisher: string) : Observable<any>{
         let params = new HttpParams()
             .set("skip", Skip)
-            .set("take", Take);
+            .set("take", Take)
+            .set("genre", Genre)
+            .set("agid", Author)
+            .set("pgid", Publisher);
 
         return this.http.get<any>(this.apiUrl + 'api/Books/GetBooks', { params: params, headers: GetToken(this.cookiesService) })
     }
