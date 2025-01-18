@@ -6,8 +6,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslationService } from 'src/app/services/translate.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MainUIErrorHandler } from 'src/app/error-handlers/main-ui-error-handler.component';
-import { addBook, cleanState, loadBook, updateBook } from '../books-page-state/books-page-state.actions';
-import { selectBook, selectErrorMessage } from '../books-page-state/books-page-state.selectors';
+import { addBook, cleanState, loadAuthors, loadBook, loadPublishers, updateBook } from '../books-page-state/books-page-state.actions';
+import { selectAuthors, selectBook, selectErrorMessage, selectPublishers } from '../books-page-state/books-page-state.selectors';
 import { Guid } from 'guid-typescript';
 
 @Component({
@@ -23,9 +23,14 @@ export class BookPageComponent implements OnInit, OnDestroy {
   public bgid: string = "";
   public isNewBookView: boolean = true;
   public genres: any[] = []
+
+  public selectedAuthor: string = '';
+  public selectedPublisher: string = '';
   public selectedGenre: number = 0;
 
   public Book$ = this.store.select(selectBook);
+  public Authors$ = this.store.select(selectAuthors);
+  public Publishers$ = this.store.select(selectPublishers);
   public ErrorMessage$ = this.store.select(selectErrorMessage);
 
   constructor(public store: Store<AppState>, 
@@ -45,6 +50,9 @@ export class BookPageComponent implements OnInit, OnDestroy {
     ];
   }
   ngOnInit(): void {
+    this.store.dispatch(loadAuthors());
+    this.store.dispatch(loadPublishers());
+
     this.bgid = this.route.snapshot.paramMap.get('bgid') ?? "";
     this.isNewBookView = this.bgid == "" || this.bgid == "0";
 
@@ -64,6 +72,8 @@ export class BookPageComponent implements OnInit, OnDestroy {
           BDescription: new FormControl( x.BDescription, { validators: [ Validators.maxLength(2000) ] }),
         })
 
+        this.selectedAuthor = x.BAuthorGID;
+        this.selectedPublisher = x.BPublisherGID;
         this.selectedGenre = this.genres[x.BGenre - 1].id;
       })
     );
@@ -75,13 +85,11 @@ export class BookPageComponent implements OnInit, OnDestroy {
     );
   }
 
-  public DisplayGenre = (genre: number) => this.genres[genre].name;
-
   public SaveBook = () => {
     let model = {
       "BGID": this.form.get("BGID")?.value,
-      "BAuthorGID": Guid.create().toString(),//this.form.get("BAuthorGID")?.value,
-      "BPublisherGID": Guid.create().toString(),//this.form.get("BPublisherGID")?.value,
+      "BAuthorGID": this.selectedAuthor,
+      "BPublisherGID": this.selectedPublisher,
       "BTitle": this.form.get("BTitle")?.value,
       "BISBN": this.form.get("BISBN")?.value,
       "BGenre": this.selectedGenre,

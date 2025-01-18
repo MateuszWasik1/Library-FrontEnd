@@ -22,7 +22,15 @@
                     </span>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('Books_Author')" formControlName="BAuthorGID"/>
+                    <ng-container *ngIf="Authors$ | async as authors">
+                        <mat-form-field class="margin-left-30">
+                            <mat-select [(value)]="selectedAuthor"> 
+                                <mat-option *ngFor="let author of authors;" [value]="author['agid']">
+                                    {{author['aFirstName']}} {{author['aMiddleName']}} {{author['aLastName']}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ng-container>
                 </div>
             </div>
             <div class="row">
@@ -33,7 +41,15 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
                     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                        <input type="text" class="data-input" [placeholder]="translations.Get('Books_Publisher')" formControlName="BPublisherGID"/>
+                        <ng-container *ngIf="Publishers$ | async as publishers">
+                            <mat-form-field class="margin-left-30">
+                                <mat-select [(value)]="selectedPublisher"> 
+                                    <mat-option *ngFor="let publisher of publishers;" [value]="publisher['pgid']">
+                                        {{publisher['pName']}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </ng-container>
                     </div>
                 </div>
             </div>

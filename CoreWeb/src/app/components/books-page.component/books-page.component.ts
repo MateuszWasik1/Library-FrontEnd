@@ -16,6 +16,8 @@ import { cleanState, deleteBook, loadAuthors, loadBooks, updatePaginationDataBoo
 export class BooksPageComponent implements OnInit, OnDestroy {
   public subscriptions: Subscription[];
 
+  public authors: any[] = []
+  public publishers: any[] = []
   public genres: any[] = []
   public count: number = 0;
 
@@ -45,11 +47,22 @@ export class BooksPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadBooks())));
-    this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
     this.store.dispatch(loadAuthors())
     this.store.dispatch(loadPublishers())
+
+    this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadBooks())));
+    this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
+    this.subscriptions.push(this.Authors$.subscribe(authors => this.authors = authors));
+    this.subscriptions.push(this.Publishers$.subscribe(publishers => this.publishers = publishers));
   }
+
+  public DisplayAuthor = (agid: number) => {
+    let author = this.authors[this.authors.findIndex(author => author.agid == agid)]
+
+    return `${author.aFirstName} ${author.aLastName}`
+  };
+
+  public DisplayPublisher = (pgid: number) => this.publishers[this.publishers.findIndex(publisher => publisher.pgid == pgid)].pName;
 
   public DisplayGenre = (genre: number) => this.genres[genre].name;
 
@@ -63,9 +76,7 @@ export class BooksPageComponent implements OnInit, OnDestroy {
 
   public UpdateBook = (bgid: string) => this.router.navigate([`books/${bgid}`]);
 
-  public DeleteBook = (bgid: string) => {
-    this.store.dispatch(deleteBook({ bgid: bgid }));
-  }
+  public DeleteBook = (bgid: string) => this.store.dispatch(deleteBook({ bgid: bgid }));
 
   public UpdatePaginationData = (PaginationData: any) => this.store.dispatch(updatePaginationDataBooks({ PaginationData: PaginationData }));
 
