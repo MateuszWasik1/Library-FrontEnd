@@ -118,46 +118,6 @@
                     {{translations.Get('User_Error_MaxLength100')}}
                 </div>
             </div>
-            <div class="row" *ngIf="IsAdminView">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
-                    <span class="data-input-text">
-                        {{translations.Get('User_Categories_Count')}}:
-                    </span>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('User_Categories_Count')" formControlName="uCategoriesCount"/>
-                </div>
-            </div>
-            <div class="row" *ngIf="IsAdminView">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
-                    <span class="data-input-text">
-                        {{translations.Get('User_Tasks_Count')}}:
-                    </span>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('User_Tasks_Count')" formControlName="uTasksCount"/>
-                </div>
-            </div>
-            <div class="row" *ngIf="IsAdminView">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
-                    <span class="data-input-text">
-                        {{translations.Get('User_Tasks_Notes_Count')}}:
-                    </span>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('User_Tasks_Notes_Count')" formControlName="uTaskNotesCount"/>
-                </div>
-            </div>
-            <div class="row" *ngIf="IsAdminView">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 row-text">
-                    <span class="data-input-text">
-                        {{translations.Get('User_Savings_Count')}}:
-                    </span>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 row-inputs">
-                    <input type="text" class="data-input" [placeholder]="translations.Get('User_Savings_Count')" formControlName="uSavingsCount"/>
-                </div>
-            </div>
         </div>
     </div>
 </section>

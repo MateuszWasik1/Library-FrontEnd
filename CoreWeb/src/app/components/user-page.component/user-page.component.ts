@@ -32,10 +32,6 @@ export class UserPageComponent implements OnInit, OnDestroy {
     uUserName: new FormControl({value: '', disabled: true}, {validators: [ Validators.required, Validators.maxLength(100) ] }),
     uEmail: new FormControl('', {validators: [ Validators.required, Validators.email, Validators.maxLength(100)  ] }),
     uPhone: new FormControl('', {validators: [ Validators.maxLength(100) ] }),
-    uCategoriesCount: new FormControl(-1, {validators: [] }),
-    uTasksCount: new FormControl(-1, {validators: [] }),
-    uTaskNotesCount: new FormControl(-1, {validators: [] }),
-    uSavingsCount: new FormControl(-1, {validators: [] }),
   });
   
   public User$ = this.store.select(selectUser);
@@ -74,10 +70,6 @@ export class UserPageComponent implements OnInit, OnDestroy {
       this.form.get("uUserName")?.setValue(user.uUserName);
       this.form.get("uEmail")?.setValue(user.uEmail);
       this.form.get("uPhone")?.setValue(user.uPhone);
-      this.form.get("uCategoriesCount")?.setValue(user.uCategoriesCount);
-      this.form.get("uTasksCount")?.setValue(user.uTasksCount);
-      this.form.get("uTaskNotesCount")?.setValue(user.uTaskNotesCount);
-      this.form.get("uSavingsCount")?.setValue(user.uSavingsCount);
 
       this.selectedRole = this.roles[user.urid ? user.urid - 1 : 0].id;
     }));

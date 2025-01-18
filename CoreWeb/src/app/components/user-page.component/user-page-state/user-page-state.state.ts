@@ -10,10 +10,6 @@ export interface UserState {
         uUserName: string,
         uEmail: string,
         uPhone: string,
-        uCategoriesCount: number,
-        uTasksCount: number,
-        uTaskNotesCount: number,
-        uSavingsCount: number,
     },
     ErrorMessage: string,
 }

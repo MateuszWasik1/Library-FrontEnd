@@ -12,10 +12,6 @@ var initialStateOfUserPage: UserState = {
         uUserName: '',
         uEmail: '',
         uPhone: '',
-        uCategoriesCount: -1,
-        uTasksCount: -1,
-        uTaskNotesCount: -1,
-        uSavingsCount: -1,
     },
     ErrorMessage: "",
 };
@@ -34,10 +30,6 @@ export const UserReducer = createReducer<UserState>(
             uUserName: User.uUserName,
             uEmail: User.uEmail,
             uPhone: User.uPhone,
-            uCategoriesCount: -1,
-            uTasksCount: -1,
-            uTaskNotesCount: -1,
-            uSavingsCount: -1,
         }
     })),
 
@@ -58,10 +50,6 @@ export const UserReducer = createReducer<UserState>(
             uUserName: User.uUserName,
             uEmail: User.uEmail,
             uPhone: User.uPhone,
-            uCategoriesCount: User.uCategoriesCount,
-            uTasksCount: User.uTasksCount,
-            uTaskNotesCount: User.uTaskNotesCount,
-            uSavingsCount: User.uSavingsCount,
         }
     })),
 
@@ -94,10 +82,6 @@ export const UserReducer = createReducer<UserState>(
             uUserName: '',
             uEmail: '',
             uPhone: '',
-            uCategoriesCount: -1,
-            uTasksCount: -1,
-            uTaskNotesCount: -1,
-            uSavingsCount: -1,
         },
         ErrorMessage: "",
     })),
