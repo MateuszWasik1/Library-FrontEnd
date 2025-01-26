@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <div class="row padding-top-15 padding-bottom-15">
+        <div class="row padding-top-15 padding-bottom-15" *ngIf="books.length != 0">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 {{translations.Get('Books_Author')}}
             </div>
@@ -111,6 +111,10 @@
                     <span class="bi bi-trash" (click)="DeleteBook(book.bgid)"></span>
                 </div>
             </div>
+        </div>
+
+        <div class="row no-data-row" *ngIf="books.length == 0">
+            <p>{{translations.Get('Books_NotFound')}}</p>
         </div>
     </section>
 </ng-container>

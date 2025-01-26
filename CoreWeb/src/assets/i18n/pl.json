@@ -74,6 +74,7 @@
     "Books_BISBN_Max13": "Maksymalna liczba znaków to 13",
     "Books_BLanguage_Max255": "Maksymalna liczba znaków to 255",
     "Books_BDescription_Max255": "Maksymalna liczba znaków to 13",
+    "Books_NotFound": "Nie znaleziono żadnych książek! Zmień opcje filtrowania!",
     "Authors_AFirstName": "Imię",
     "Authors_AMiddleName": "Drugie imię",
     "Authors_ALastName": "Nazwisko",
@@ -88,11 +89,13 @@
     "Authors_ALastName_Max255": "Maksymalna liczba znaków to 255",
     "Authors_ANickName_Max255": "Maksymalna liczba znaków to 255",
     "Authors_ANationality_Max255": "Maksymalna liczba znaków to 255",
+    "Authors_NotFound": "Nie znaleziono żadnych autorów! Zmień opcje filtrowania!",
     "Publishers_PName": "Nazwa",
     "Publishers_PCountry": "Kraj",
     "Publishers_PCity": "Miasto",
     "Publishers_PEmail": "Email",
     "Publishers_PPhone": "Telefon",
     "Publishers_New_Publisher": "Nowe wydawnictwo",
-    "Publishers_Publisher": "Wydawnictwo"
+    "Publishers_Publisher": "Wydawnictwo",
+    "Publishers_NotFound": "Nie znaleziono żadnych wydawnictw! Zmień opcje filtrowania!"
 }
