@@ -72,16 +72,19 @@
     "Books_BISBN_Max13": "Maximum number of characters is 13",
     "Books_BLanguage_Max255": "Maximum number of characters is 255",
     "Books_BDescription_Max255": "Maximum number of characters is 13",
+    "Books_NotFound": "No books found! Change filters options!",
     "Authors_AFirstName": "FirstName",
     "Authors_AMiddleName": "MiddleName",
     "Authors_ALastName": "LastName",
     "Authors_ANickName": "NickName",
     "Authors_ANationality": "Nationality",
+    "Authors_NotFound": "No authors found! Change filters options!",
     "Publishers_PName": "Name",
     "Publishers_PCountry": "Country",
     "Publishers_PCity": "City",
     "Publishers_PEmail": "Email",
     "Publishers_PPhone": "Phone",
     "Publishers_New_Publisher": "New Publisher",
-    "Publishers_Publisher": "Publisher"
+    "Publishers_Publisher": "Publisher",
+    "Publishers_NotFound": "No publishers found! Change filters options!"
 }
