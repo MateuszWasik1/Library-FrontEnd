@@ -12,7 +12,7 @@ export class UserService {
     public apiUrl = environment.apiUrl;
     constructor( private http: HttpClient, private cookiesService: CookieService ) {}
 
-    GetAllUsers(Skip: number, Take: number) : Observable<any>{
+    GetAllUsers(Skip: number, Take: number): Observable<any>{
         let params = new HttpParams()
             .set("skip", Skip)
             .set("take", Take);
@@ -20,27 +20,27 @@ export class UserService {
         return this.http.get<any>(this.apiUrl + 'api/User/GetAllUsers', { params: params, headers: GetToken(this.cookiesService) })
     }
 
-    GetUserByAdmin(ugid: any) : Observable<any>{
+    GetUserByAdmin(ugid: any): Observable<any>{
         let params = new HttpParams();
 
         return this.http.get<any>(this.apiUrl + 'api/User/GetUserByAdmin/' + ugid, { params: params, headers: GetToken(this.cookiesService) })
     }
 
-    GetUser() : Observable<any>{
+    GetUser(): Observable<any>{
         let params = new HttpParams();
 
         return this.http.get<any>(this.apiUrl + 'api/User/GetUser', { params: params, headers: GetToken(this.cookiesService) })
     }
 
-    SaveUser(model: any) : Observable<any>{
+    SaveUser(model: any): Observable<any>{
         return this.http.post<any>(this.apiUrl + 'api/User/SaveUser', model, { headers: GetToken(this.cookiesService) })
     }
 
-    SaveUserByAdmin(model: any) : Observable<any>{
+    SaveUserByAdmin(model: any): Observable<any>{
         return this.http.post<any>(this.apiUrl + 'api/User/SaveUserByAdmin', model, { headers: GetToken(this.cookiesService) })
     }
 
-    DeleteUser(ugid: any) : Observable<any>{
+    DeleteUser(ugid: any): Observable<any>{
         return this.http.delete<any>(this.apiUrl + 'api/User/DeleteUser/' + ugid, { headers: GetToken(this.cookiesService) })
     }
 }
