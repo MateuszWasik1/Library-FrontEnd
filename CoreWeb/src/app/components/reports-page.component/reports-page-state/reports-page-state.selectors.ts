@@ -3,7 +3,7 @@ import { ReportsState, featureKeyReportsState } from "./reports-page-state.state
 
 const selectReportsState = createFeatureSelector<ReportsState>(featureKeyReportsState)
 
-export const selectPublishers = createSelector(selectReportsState, (state: ReportsState) => state.Reports);
+export const selectReports = createSelector(selectReportsState, (state: ReportsState) => state.Reports);
 
 export const selectFilters = createSelector(selectReportsState, (state: ReportsState) => state.Filters);
 

@@ -55,6 +55,10 @@ import { featureKeyPublishersState } from './components/publisher-page.component
 import { PublishersReducer } from './components/publisher-page.component/publishers-page-state/publishers-page-state.reducer';
 import { PublishersEffects } from './components/publisher-page.component/publishers-page-state/publishers-page-state.effects';
 import { PublisherPageComponent } from './components/publisher-page.component/publisher-page.component/publisher-page.component';
+import { ReportsPageComponent } from './components/reports-page.component/reports-page.component';
+import { featureKeyReportsState } from './components/reports-page.component/reports-page-state/reports-page-state.state';
+import { ReportsReducer } from './components/reports-page.component/reports-page-state/reports-page-state.reducer';
+import { ReportsEffects } from './components/reports-page.component/reports-page-state/reports-page-state.effects';
 
 @NgModule({
   declarations: [
@@ -70,7 +74,8 @@ import { PublisherPageComponent } from './components/publisher-page.component/pu
     AuthorPageComponent,
     AuthorsPageComponent,
     PublisherPageComponent,
-    PublishersPageComponent
+    PublishersPageComponent,
+    ReportsPageComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -109,8 +114,9 @@ import { PublisherPageComponent } from './components/publisher-page.component/pu
     StoreModule.forFeature(featureKeyBooksState, BooksReducer),
     StoreModule.forFeature(featureKeyAuthorsState, AuthorsReducer),
     StoreModule.forFeature(featureKeyPublishersState, PublishersReducer),
+    StoreModule.forFeature(featureKeyReportsState, ReportsReducer),
 
-    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects, AuthorsEffects, PublishersEffects]),
+    EffectsModule.forRoot([AccountEffects, UserEffects, UsersEffects, BooksEffects, AuthorsEffects, PublishersEffects, ReportsEffects]),
     BrowserAnimationsModule,
   ],
   providers: [
