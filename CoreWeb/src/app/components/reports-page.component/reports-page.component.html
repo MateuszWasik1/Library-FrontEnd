@@ -1,7 +1,7 @@
 <ng-container *ngIf="Reports$ | async as reports">
     <section class="body">
         <div class="row">
-            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="page-title">{{translations.Get('TopMenu_Reports')}}</h1>
             </div>
         </div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="row no-data-row" *ngIf="reports.length == 0">
-            <p>{{translations.Get('Publishers_NotFound')}}</p>
+            <p>{{translations.Get('Reports_NotFound')}}</p>
         </div>
     </section>
 </ng-container>
