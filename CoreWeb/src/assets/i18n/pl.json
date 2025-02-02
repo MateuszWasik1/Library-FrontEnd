@@ -33,6 +33,7 @@
     "TopMenu_Books": "Książki",
     "TopMenu_Authors": "Autorzy",
     "TopMenu_Publishers": "Wydawnictwa",
+    "TopMenu_Reports": "Raporty",
     "User_User": "Użytkownik",
     "User_First_Name": "Imię",
     "User_Last_Name": "Nazwisko",
@@ -97,5 +98,8 @@
     "Publishers_PPhone": "Telefon",
     "Publishers_New_Publisher": "Nowe wydawnictwo",
     "Publishers_Publisher": "Wydawnictwo",
-    "Publishers_NotFound": "Nie znaleziono żadnych wydawnictw! Zmień opcje filtrowania!"
+    "Publishers_NotFound": "Nie znaleziono żadnych wydawnictw! Zmień opcje filtrowania!",
+    "Reports_Name": "Nazwa raportu",
+    "Reports_Date": "Data wygenerowania raportu",
+    "Reports_NotFound": "Nie znaleziono żadnych raportów!"
 }

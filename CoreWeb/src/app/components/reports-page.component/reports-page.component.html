@@ -2,7 +2,7 @@
     <section class="body">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-                <h1 class="page-title">{{translations.Get('TopMenu_Publishers')}}</h1>
+                <h1 class="page-title">{{translations.Get('TopMenu_Reports')}}</h1>
             </div>
         </div>
 
@@ -12,41 +12,22 @@
             </div>
         </div>
 
-        <div class="row padding-top-15 padding-bottom-15" *ngIf="publishers.length != 0">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                {{translations.Get('Publishers_PName')}}
+        <div class="row padding-top-15 padding-bottom-15" *ngIf="reports.length != 0">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                {{translations.Get('Reports_Name')}}
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                {{translations.Get('Publishers_PCountry')}}
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                {{translations.Get('Reports_Date')}}
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                {{translations.Get('Publishers_PCity')}}
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                {{translations.Get('Publishers_PEmail')}}
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 hidden-xs">
-                {{translations.Get('Publishers_PPhone')}}
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"></div>
         </div>
 
         <div *ngFor="let report of reports;">
             <div class="row data-row">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <p>{{publisher.pName}}</p>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <p>{{report.rName}}</p>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <p>{{publisher.pCountry}}</p>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <p>{{publisher.pCity}}</p>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <p>{{publisher.pEmail}}</p>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 hidden-xs">
-                    <p>{{publisher.pPhone}}</p>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <p>{{report.rGenerationDate}}</p>
                 </div>
             </div>
         </div>
