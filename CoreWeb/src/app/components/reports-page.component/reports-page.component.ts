@@ -38,7 +38,7 @@ export class ReportsPageComponent implements OnInit, OnDestroy {
     public DownloadReport = (RBase64: string, RName: string) =>{
       const downloadElement = document.createElement('a');
   
-      downloadElement.href = RBase64;
+      downloadElement.href = 'data:application/octet-stream;base64,' + RBase64;
       downloadElement.download = RName;
       downloadElement.click();
     }

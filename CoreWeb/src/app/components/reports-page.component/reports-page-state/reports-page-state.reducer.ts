@@ -32,7 +32,7 @@ export const ReportsReducer = createReducer<ReportsState>(
 
         let reportsWithoutDeletedReport = newReports.filter(x => x.rgid != RGID);
 
-        return {...state, Publishers: reportsWithoutDeletedReport};
+        return {...state, Reports: reportsWithoutDeletedReport};
     }),
 
     on(Actions.deleteReportError, (state, { error }) => ({

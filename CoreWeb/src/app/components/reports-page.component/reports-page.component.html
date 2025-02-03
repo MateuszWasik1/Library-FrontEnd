@@ -28,7 +28,7 @@
                     <p>{{report.rName}}</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <p>{{report.rGenerationDate}}</p>
+                    <p>{{report.rGenerationDate | date: 'yyyy-MM-dd HH:mm'}}</p>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <span class="bi bi-download" (click)="DownloadReport(report.rBase64, report.rName)"></span>
