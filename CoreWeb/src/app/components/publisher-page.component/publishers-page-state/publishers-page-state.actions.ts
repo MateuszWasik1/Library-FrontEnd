@@ -17,7 +17,7 @@ export const updatePublisherSuccess = createAction('Publishers Page] Update Publ
 export const updatePublisherError = createAction('[Publishers Page] Update Publisher Error', props<{ error: any }>());
 
 export const deletePublisher = createAction('[Publishers Page] Delete Publisher', props<{ pgid: any }>());
-export const deletePublisherSuccess = createAction('Publishers Page] Delete Publisher Success', props<{ pgid: any }>());
+export const deletePublisherSuccess = createAction('[Publishers Page] Delete Publisher Success', props<{ pgid: any }>());
 export const deletePublisherError = createAction('[Publishers Page] Delete Publisher Error', props<{ error: any }>());
 
 export const updatePaginationDataPublishers = createAction('[Publishers Page] Update Pagination Data Publishers', props<{ PaginationData: any }>());

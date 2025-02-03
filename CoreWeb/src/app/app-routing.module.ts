@@ -10,6 +10,7 @@ import { AuthorsPageComponent } from './components/authors-page.component/author
 import { AuthorPageComponent } from './components/authors-page.component/author-page.component/author-page.component';
 import { PublishersPageComponent } from './components/publisher-page.component/publishers-page.component';
 import { PublisherPageComponent } from './components/publisher-page.component/publisher-page.component/publisher-page.component';
+import { ReportsPageComponent } from './components/reports-page.component/reports-page.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
     path: 'publishers/:pgid',
     component: PublisherPageComponent,
     title: "Wydawnictwo"
+  },
+  {
+    path: 'reports',
+    component: ReportsPageComponent,
+    title: "Raporty"
   },
   {
     path: '**',

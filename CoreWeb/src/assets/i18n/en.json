@@ -32,6 +32,7 @@
     "TopMenu_Books": "Books",
     "TopMenu_Authors": "Authors",
     "TopMenu_Publishers": "Publishers",
+    "TopMenu_Reports": "Reports",
     "User_User": "User",
     "User_First_Name": "First Name",
     "User_Last_Name": "Last Name",
@@ -86,5 +87,8 @@
     "Publishers_PPhone": "Phone",
     "Publishers_New_Publisher": "New Publisher",
     "Publishers_Publisher": "Publisher",
-    "Publishers_NotFound": "No publishers found! Change filters options!"
+    "Publishers_NotFound": "No publishers found! Change filters options!",
+    "Reports_Name": "Reports name",
+    "Reports_Date": "Reports generation date",
+    "Reports_NotFound": "Reports not found!"
 }

@@ -39,9 +39,7 @@ export class PublishersPageComponent implements OnInit, OnDestroy {
 
   public UpdatePublisher = (pgid: string) => this.router.navigate([`publishers/${pgid}`]);
 
-  public DeletePublisher = (pgid: string) => {
-    this.store.dispatch(deletePublisher({ pgid: pgid }));
-  }
+  public DeletePublisher = (pgid: string) => this.store.dispatch(deletePublisher({ pgid: pgid }));
 
   public UpdatePaginationData = (PaginationData: any) => this.store.dispatch(updatePaginationDataPublishers({ PaginationData: PaginationData }));
 
