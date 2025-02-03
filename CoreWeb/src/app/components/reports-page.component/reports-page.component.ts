@@ -6,7 +6,7 @@ import { TranslationService } from 'src/app/services/translate.service';
 import { Router } from '@angular/router';
 import { MainUIErrorHandler } from 'src/app/error-handlers/main-ui-error-handler.component';
 import { selectCount, selectFilters, selectReports } from './reports-page-state/reports-page-state.selectors';
-import { cleanState, loadReports, updatePaginationDataReports } from './reports-page-state/reports-page-state.actions';
+import { cleanState, deleteReport, loadReports, updatePaginationDataReports } from './reports-page-state/reports-page-state.actions';
 
 @Component({
   selector: 'app-reports-page',
@@ -34,6 +34,16 @@ export class ReportsPageComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.Filters$.subscribe(() => this.store.dispatch(loadReports())));
     this.subscriptions.push(this.Count$.subscribe(count => this.count = count));
   }
+
+    public DownloadReport = (RBase64: string, RName: string) =>{
+      const downloadElement = document.createElement('a');
+  
+      downloadElement.href = RBase64;
+      downloadElement.download = RName;
+      downloadElement.click();
+    }
+  
+    public DeleteReport = (rgid: string) => this.store.dispatch(deleteReport({ RGID: rgid }));
 
   public UpdatePaginationData = (PaginationData: any) => this.store.dispatch(updatePaginationDataReports({ PaginationData: PaginationData }));
 

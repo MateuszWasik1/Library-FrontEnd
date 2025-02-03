@@ -26,6 +26,20 @@ export const ReportsReducer = createReducer<ReportsState>(
         ErrorMessage: error
     })),
 
+    //Delete Report
+    on(Actions.deleteReportSuccess, (state, { RGID }) => {
+        let newReports = [...state.Reports];
+
+        let reportsWithoutDeletedReport = newReports.filter(x => x.rgid != RGID);
+
+        return {...state, Publishers: reportsWithoutDeletedReport};
+    }),
+
+    on(Actions.deleteReportError, (state, { error }) => ({
+        ...state,
+        ErrorMessage: error
+    })),
+
     //Filters
     on(Actions.updatePaginationDataReports, (state, { PaginationData }) => ({
         ...state,

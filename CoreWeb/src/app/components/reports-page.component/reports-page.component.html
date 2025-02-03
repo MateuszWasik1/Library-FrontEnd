@@ -13,21 +13,26 @@
         </div>
 
         <div class="row padding-top-15 padding-bottom-15" *ngIf="reports.length != 0">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 {{translations.Get('Reports_Name')}}
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 {{translations.Get('Reports_Date')}}
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
         </div>
 
         <div *ngFor="let report of reports;">
             <div class="row data-row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <p>{{report.rName}}</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <p>{{report.rGenerationDate}}</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <span class="bi bi-download" (click)="DownloadReport(report.rBase64, report.rName)"></span>
+                    <span class="bi bi-trash" (click)="DeleteReport(report.rgid)"></span>
                 </div>
             </div>
         </div>

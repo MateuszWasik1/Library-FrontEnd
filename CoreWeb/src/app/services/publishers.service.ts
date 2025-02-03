@@ -35,7 +35,7 @@ export class PublishersService {
         return this.http.put<any>(this.apiUrl + 'api/Publishers/UpdatePublisher', model, { headers: GetToken(this.cookiesService) })
     }
 
-    DeletePublisher(tgid: any) : Observable<any>{
-        return this.http.delete<any>(`${this.apiUrl}api/Publishers/DeletePublisher/${tgid}`, { headers: GetToken(this.cookiesService) })
+    DeletePublisher(pgid: any) : Observable<any>{
+        return this.http.delete<any>(`${this.apiUrl}api/Publishers/DeletePublisher/${pgid}`, { headers: GetToken(this.cookiesService) })
     }
 }

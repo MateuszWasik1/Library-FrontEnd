@@ -30,4 +30,16 @@ export class ReportsEffects {
             })
         )
     });
+
+    deleteReport = createEffect(() => {
+        return this.actions.pipe(
+            ofType(ReportsActions.deleteReport),
+            switchMap((params) => {
+                return this.reportsService.DeleteReport(params.RGID).pipe(
+                    map(() => ReportsActions.deleteReportSuccess({ RGID: params.RGID })),
+                    catchError(error => of(ReportsActions.deleteReportError({ error: this.errorHandler.handleAPIError(error) })))
+                )
+            })
+        )
+    });
 }

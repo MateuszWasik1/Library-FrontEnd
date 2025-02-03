@@ -23,4 +23,8 @@ export class ReportsService {
 
         return this.http.get<any>(this.apiUrl + 'api/Reports/GetReports', { params: params, headers: GetToken(this.cookiesService) })
     }
+
+    DeleteReport(rgid: any) : Observable<any>{
+        return this.http.delete<any>(`${this.apiUrl}api/Reports/DeleteReport/${rgid}`, { headers: GetToken(this.cookiesService) })
+    }
 }
